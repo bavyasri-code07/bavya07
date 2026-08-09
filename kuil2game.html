@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Magic World - தமிழ் & English Learning</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Latha', 'Tamil Sangam MN', sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #d63031;
+            font-size: 28px;
+            text-shadow: 2px 2px #ffeaa7;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .tab-menu {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab-btn {
+            background: #6c5ce7;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+        .tab-btn:hover { transform: scale(1.05); }
+        .tab-btn.active { background: #fd79a8; }
+
+        .display-card {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            min-height: 180px;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid #ffeaa7;
+            margin-bottom: 20px;
+        }
+        .big-emoji { font-size: 70px; animation: bounce 0.6s ease infinite alternate; }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-12px); }
+        }
+        .big-text { font-size: 30px; font-weight: bold; color: #2d3436; margin-top: 10px; text-align: center; }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+            gap: 10px;
+            width: 100%;
+            max-width: 850px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 20px;
+        }
+        .item-card {
+            background: white;
+            border: 3px solid #74b9ff;
+            border-radius: 15px;
+            padding: 12px 5px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 5px 0 #0984e3;
+            transition: all 0.1s ease;
+        }
+        .item-card:active {
+            transform: translateY(5px);
+            box-shadow: none;
+        }
+        .item-card .letter { font-size: 22px; font-weight: bold; color: #6c5ce7; }
+        .item-card .sub { font-size: 18px; display: block; margin-top: 3px; }
+    </style>
+</head>
+<body>
+
+    <h1>🎈 குழந்தைகள் கற்றல் உலகம் 🌟</h1>
+
+    <div class="tab-menu">
+        <button class="tab-btn active" onclick="switchMode('tamil')">🌺 தமிழ் அ-ஔ</button>
+        <button class="tab-btn" onclick="switchMode('abc')">🔤 English A-Z</button>
+        <button class="tab-btn" onclick="switchMode('num100')">🔢 1 to 100</button>
+        <button class="tab-btn" onclick="switchMode('spell10')">🔤 O-N-E Spellings</button>
+    </div>
+
+    <div class="display-card">
+        <div class="big-emoji" id="display-emoji">👩</div>
+        <div class="big-text" id="display-text">கிளிக் செய்து படிக்க தொடங்குங்கள்!</div>
+    </div>
+
+    <div class="grid-container" id="buttons-grid"></div>
+
+    <script>
+        // 1. தமிழ் உயிர் எழுத்துக்கள்
+        const tamilData = [
+            { key: 'அ', name: 'அம்மா', icon: '👩', speak: 'அ அம்மா', lang: 'ta-IN' },
+            { key: 'ஆ', name: 'ஆடு', icon: '🐐', speak: 'ஆ ஆடு', lang: 'ta-IN' },
+            { key: 'இ', name: 'இலை', icon: '🍃', speak: 'இ இலை', lang: 'ta-IN' },
+            { key: 'ஈ', name: 'ஈட்டி', icon: '🗡️', speak: 'ஈ ஈட்டி', lang: 'ta-IN' },
+            { key: 'உ', name: 'உரல்', icon: '🥣', speak: 'உ உரல்', lang: 'ta-IN' },
+            { key: 'ஊ', name: 'ஊஞ்சல்', icon: '🛝', speak: 'ஊ ஊஞ்சல்', lang: 'ta-IN' },
+            { key: 'எ', name: 'எலி', icon: '🐀', speak: 'எ எலி', lang: 'ta-IN' },
+            { key: 'ஏ', name: 'ஏணி', icon: '🪜', speak: 'ஏ ஏணி', lang: 'ta-IN' },
+            { key: 'ஐ', name: 'ஐந்து', icon: '5️⃣', speak: 'ஐ ஐந்து', lang: 'ta-IN' },
+            { key: 'ஒ', name: 'ஒட்டகம்', icon: '🐪', speak: 'ஒ ஒட்டகம்', lang: 'ta-IN' },
+            { key: 'ஓ', name: 'ஓடம்', icon: '⛵', speak: 'ஓ ஓடம்', lang: 'ta-IN' },
+            { key: 'ஔ', name: 'ஔவையார்', icon: '👵', speak: 'ஔ ஔவையார்', lang: 'ta-IN' },
+            { key: 'ஃ', name: 'ஃஃஃ எஃகு', icon: '⚔️', speak: 'ஆயுத எழுத்து எஃகு', lang: 'ta-IN' }
+        ];
+
+        // 2. English A to Z Data
+        const abcData = [
+            { key: 'A', name: 'Apple', icon: '🍎', speak: 'A for Apple', lang: 'en-IN' },
+            { key: 'B', name: 'Banana', icon: '🍌', speak: 'B for Banana', lang: 'en-IN' },
+            { key: 'C', name: 'Cat', icon: '🐱', speak: 'C for Cat', lang: 'en-IN' },
+            { key: 'D', name: 'Dog', icon: '🐶', speak: 'D for Dog', lang: 'en-IN' },
+            { key: 'E', name: 'Elephant', icon: '🐘', speak: 'E for Elephant', lang: 'en-IN' },
+            { key: 'F', name: 'Fish', icon: '🐟', speak: 'F for Fish', lang: 'en-IN' },
+            { key: 'G', name: 'Grapes', icon: '🍇', speak: 'G for Grapes', lang: 'en-IN' },
+            { key: 'H', name: 'Hat', icon: '🎩', speak: 'H for Hat', lang: 'en-IN' },
+            { key: 'I', name: 'Ice Cream', icon: '🍦', speak: 'I for Ice Cream', lang: 'en-IN' },
+            { key: 'J', name: 'Juice', icon: '🧃', speak: 'J for Juice', lang: 'en-IN' },
+            { key: 'K', name: 'Kite', icon: '🪁', speak: 'K for Kite', lang: 'en-IN' },
+            { key: 'L', name: 'Lion', icon: '🦁', speak: 'L for Lion', lang: 'en-IN' },
+            { key: 'M', name: 'Monkey', icon: '🐒', speak: 'M for Monkey', lang: 'en-IN' },
+            { key: 'N', name: 'Nest', icon: '🪹', speak: 'N for Nest', lang: 'en-IN' },
+            { key: 'O', name: 'Orange', icon: '🍊', speak: 'O for Orange', lang: 'en-IN' },
+            { key: 'P', name: 'Parrot', icon: '🦜', speak: 'P for Parrot', lang: 'en-IN' },
+            { key: 'Q', name: 'Queen', icon: '👸', speak: 'Q for Queen', lang: 'en-IN' },
+            { key: 'R', name: 'Rabbit', icon: '🐰', speak: 'R for Rabbit', lang: 'en-IN' },
+            { key: 'S', name: 'Sun', icon: '☀️', speak: 'S for Sun', lang: 'en-IN' },
+            { key: 'T', name: 'Tiger', icon: '🐯', speak: 'T for Tiger', lang: 'en-IN' },
+            { key: 'U', name: 'Umbrella', icon: '☂️', speak: 'U for Umbrella', lang: 'en-IN' },
+            { key: 'V', name: 'Van', icon: '🚐', speak: 'V for Van', lang: 'en-IN' },
+            { key: 'W', name: 'Watch', icon: '⌚', speak: 'W for Watch', lang: 'en-IN' },
+            { key: 'X', name: 'Xylophone', icon: '🎼', speak: 'X for Xylophone', lang: 'en-IN' },
+            { key: 'Y', name: 'Yak', icon: '🐂', speak: 'Y for Yak', lang: 'en-IN' },
+            { key: 'Z', name: 'Zebra', icon: '🦓', speak: 'Z for Zebra', lang: 'en-IN' }
+        ];
+
+        // 3. Spellings Data
+        const spellData = [
+            { key: '1', name: 'O-N-E One', icon: '1️⃣', speak: 'O N E One', lang: 'en-IN' },
+            { key: '2', name: 'T-W-O Two', icon: '2️⃣', speak: 'T W O Two', lang: 'en-IN' },
+            { key: '3', name: 'T-H-R-E-E Three', icon: '3️⃣', speak: 'T H R E E Three', lang: 'en-IN' },
+            { key: '4', name: 'F-O-U-R Four', icon: '4️⃣', speak: 'F O U R Four', lang: 'en-IN' },
+            { key: '5', name: 'F-I-V-E Five', icon: '5️⃣', speak: 'F I V E Five', lang: 'en-IN' },
+            { key: '6', name: 'S-I-X Six', icon: '6️⃣', speak: 'S I X Six', lang: 'en-IN' },
+            { key: '7', name: 'S-E-V-E-N Seven', icon: '7️⃣', speak: 'S E V E N Seven', lang: 'en-IN' },
+            { key: '8', name: 'E-I-G-H-T Eight', icon: '8️⃣', speak: 'E I G H T Eight', lang: 'en-IN' },
+            { key: '9', name: 'N-I-N-E Nine', icon: '9️⃣', speak: 'N I N E Nine', lang: 'en-IN' },
+            { key: '10', name: 'T-E-N Ten', icon: '🔟', speak: 'T E N Ten', lang: 'en-IN' }
+        ];
+
+        // 4. Generate 1 to 100 Numbers
+        const num100Data = [];
+        const emojisList = ['⭐', '🎈', '🎨', '🚀', '⚽', '🎯', '🧸', '🍦', '🎁', '👑'];
+
+        for (let i = 1; i <= 100; i++) {
+            let randomEmoji = emojisList[i % emojisList.length];
+            num100Data.push({
+                key: i.toString(),
+                name: `நம்பர் ${i}`,
+                icon: randomEmoji,
+                speak: i.toString(),
+                lang: 'en-IN'
+            });
+        }
+
+        let currentMode = 'tamil';
+
+        // Custom Voice Selector for Natural Indian Accent
+        function speakText(text, lang) {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const msg = new SpeechSynthesisUtterance(text);
+                
+                // Get available voices
+                const voices = window.speechSynthesis.getVoices();
+                
+                // Try to find natural Indian voices
+                let selectedVoice = voices.find(v => v.lang === lang || v.lang.includes(lang.split('-')[0]));
+                
+                if (selectedVoice) {
+                    msg.voice = selectedVoice;
+                }
+
+                msg.lang = lang;
+                msg.rate = 0.82; // Indian kids style speed
+                msg.pitch = 1.1;  // Friendly tone
+                window.speechSynthesis.speak(msg);
+            }
+        }
+
+        function playItem(item) {
+            document.getElementById('display-emoji').innerText = item.icon;
+            document.getElementById('display-text').innerText = `${item.key} - ${item.name}`;
+            speakText(item.speak, item.lang);
+        }
+
+        function switchMode(mode) {
+            currentMode = mode;
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (mode === 'tamil') buttons[0].classList.add('active');
+            if (mode === 'abc') buttons[1].classList.add('active');
+            if (mode === 'num100') buttons[2].classList.add('active');
+            if (mode === 'spell10') buttons[3].classList.add('active');
+
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('buttons-grid');
+            grid.innerHTML = '';
+            let activeArray = [];
+
+            if (currentMode === 'tamil') activeArray = tamilData;
+            else if (currentMode === 'abc') activeArray = abcData;
+            else if (currentMode === 'num100') activeArray = num100Data;
+            else if (currentMode === 'spell10') activeArray = spellData;
+
+            activeArray.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.onclick = () => playItem(item);
+                card.innerHTML = `
+                    <div class="letter">${item.key}</div>
+                    <span class="sub">${item.icon}</span>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Preload voices
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        // Initialize First View (Tamil First)
+        renderGrid();
+    </script>
+</body>
+</html>
