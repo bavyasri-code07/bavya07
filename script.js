@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupTypingAnimation();
   setupScrollReveal();
   setupNeuralBackground();
-});
-const glowCards = document.querySelectorAll('.glow-card');
+   const glowCards = document.querySelectorAll('.glow-card');
 
 glowCards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -25,6 +24,7 @@ glowCards.forEach(card => {
         card.style.setProperty('--x', `${x}px`);
         card.style.setProperty('--y', `${y}px`);
     });
+});
 });
 
 /* ---------------------------------------------------------
