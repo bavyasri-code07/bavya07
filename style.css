@@ -109,6 +109,14 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; letter-spac
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
+.calculator-box {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
 
 .tag {
   display: inline-block;
