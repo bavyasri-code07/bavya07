@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Cosmetics Store - 50 Levels & Timer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            margin: 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        #level-header {
+            background: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            color: #e84393;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .timer-box {
+            color: #e74c3c;
+            font-size: 18px;
+        }
+
+        #game-board {
+            width: 850px;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            position: relative;
+            min-height: 480px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .section {
+            background: #f8f9fa;
+            border: 2px solid #dfe6e9;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #6c5ce7;
+            font-size: 20px;
+        }
+
+        /* Anime Customer Box */
+        .customer-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+            border: 2px dashed #6c5ce7;
+            margin-top: 10px;
+            position: relative;
+        }
+        .customer-avatar {
+            font-size: 65px;
+            margin-bottom: 5px;
+            display: inline-block;
+            transition: transform 0.4s ease;
+        }
+        .walk-in {
+            animation: walkIn 0.5s ease-out;
+        }
+        @keyframes walkIn {
+            0% { transform: scale(0.2) translateY(-50px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        /* Floating WOW Emoji Animation */
+        .emoji-float {
+            position: absolute;
+            top: 20px;
+            font-size: 40px;
+            animation: floatUp 0.8s ease-out forwards;
+            pointer-events: none;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(0.8); opacity: 1; }
+            100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
+        }
+
+        .bubble {
+            background: #fd79a8;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Products Shelf */
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            width: 100%;
+        }
+        .product-btn {
+            background: white;
+            border: 2px solid #a29bfe;
+            border-radius: 12px;
+            padding: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        .product-btn:hover {
+            transform: translateY(-3px);
+            border-color: #6c5ce7;
+            box-shadow: 0 5px 12px rgba(108, 92, 231, 0.2);
+        }
+        .product-icon {
+            font-size: 32px;
+            display: block;
+        }
+
+        /* Billing Bar */
+        .billing-box {
+            grid-column: span 2;
+            background: #2d3436;
+            color: white;
+            border-radius: 15px;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Level Complete / Game Over Popup */
+        #overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.88);
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 10;
+        }
+        #overlay h2 { font-size: 36px; color: #f1c40f; margin: 0; }
+        .stars { font-size: 50px; margin: 15px 0; }
+
+        .btn {
+            background: #6c5ce7;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover { background: #a29bfe; }
+    </style>
+</head>
+<body>
+
+    <h1>✨ Anime Cosmetics Store</h1>
+
+    <div id="level-header">
+        <span>🏆 Level: <b id="current-level">1</b> / 50</span>
+        <span class="timer-box">⏳ Time Left: <b id="timer">40</b>s</span>
+        <span>🎯 Target: ₹<b id="level-target">500</b></span>
+        <span>💰 Earned: ₹<b id="level-earned">0</b></span>
+    </div>
+
+    <div id="game-board">
+
+        <div id="overlay">
+            <h2 id="overlay-title">🎉 LEVEL COMPLETED!</h2>
+            <div class="stars" id="overlay-stars">⭐️⭐️⭐️</div>
+            <p id="overlay-msg">Awesome Speed! You earned 3 Stars!</p>
+            <button class="btn" id="overlay-btn" onclick="nextLevel()">Play Next Level ➔</button>
+        </div>
+
+        <div class="section" id="customer-section">
+            <h2>🛍️ Anime Customer Counter</h2>
+            <div class="customer-card">
+                <div class="customer-avatar walk-in" id="customer-avatar">👧</div>
+                <div class="bubble" id="order-bubble">I want Lipstick! 💄</div>
+                <p id="customer-info" style="color:#636e72; font-size: 14px;">Deliver item & bill!</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💄 Cosmetics Shelf</h2>
+            <div class="products-grid">
+                <div class="product-btn" onclick="sellItem('Lipstick', 250)">
+                    <span class="product-icon">💄</span>
+                    <b>Lipstick</b><br><span style="color:#00b894;">₹250</span>
+                </div>
+                <div class="product-btn" onclick="sellItem('Eyeliner', 180)">
+                    <span class="product-icon">👁️</span>
+                    <b>Eyeliner</b><br><span style="color:#00b894;">₹180</span>
+                </div>
+                <div class="product-btn" onclick="sellItem('Foundation', 450)">
+                    <span class="product-icon">🧴</span>
+                    <b>Foundation</b><br><span style="color:#00b894;">₹450</span>
+                </div>
+                <div class="product-btn" onclick="sellItem('Face Cream', 300)">
+                    <span class="product-icon">✨</span>
+                    <b>Face Cream</b><br><span style="color:#00b894;">₹300</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="billing-box">
+            <div>
+                <span style="color:#b2bec3;">Progress:</span>
+                <div style="font-size: 20px; color: #55efc4; font-weight: bold;" id="total-cash">₹0 / ₹500</div>
+            </div>
+            <div id="status-msg">Serve quickly before timer ends!</div>
+        </div>
+
+    </div>
+
+    <script>
+        const products = [
+            { name: 'Lipstick', icon: '💄', price: 250 },
+            { name: 'Eyeliner', icon: '👁️', price: 180 },
+            { name: 'Foundation', icon: '🧴', price: 450 },
+            { name: 'Face Cream', icon: '✨', price: 300 }
+        ];
+
+        // Anime Boys & Girls Avatars
+        const animeAvatars = ['👧', '👦', '👩‍🦰', '👨‍🦱', '👩‍🦳', '👱‍♂️', '👸', '🕺'];
+        const wowEmojis = ['😍 WOW!', '💖 PERFECT!', '🤩 LOVE IT!', '✨ SUPER!'];
+
+        let currentLevel = 1;
+        let levelTarget = 500;
+        let levelEarned = 0;
+        let timeLeft = 40;
+        let timerInterval = null;
+        let currentOrder = {};
+
+        // Web Audio Sound Generator
+        function playSound(type) {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            if (type === 'success') {
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(587, ctx.currentTime);
+                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.25);
+            } else if (type === 'error') {
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(180, ctx.currentTime);
+                gain.gain.setValueAtTime(0.3, ctx.currentTime);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.2);
+            }
+        }
+
+        function startTimer() {
+            clearInterval(timerInterval);
+            timeLeft = 40;
+            document.getElementById('timer').innerText = timeLeft;
+
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    gameOver();
+                }
+            }, 1000);
+        }
+
+        function updateUI() {
+            document.getElementById('current-level').innerText = currentLevel;
+            document.getElementById('level-target').innerText = levelTarget;
+            document.getElementById('level-earned').innerText = levelEarned;
+            document.getElementById('total-cash').innerText = `₹${levelEarned} / ₹${levelTarget}`;
+        }
+
+        function newCustomer() {
+            const avatarElem = document.getElementById('customer-avatar');
+            const randomAvatar = animeAvatars[Math.floor(Math.random() * animeAvatars.length)];
+            currentOrder = products[Math.floor(Math.random() * products.length)];
+
+            avatarElem.classList.remove('walk-in');
+            void avatarElem.offsetWidth;
+            avatarElem.classList.add('walk-in');
+
+            avatarElem.innerText = randomAvatar;
+            document.getElementById('order-bubble').innerText = `I want ${currentOrder.name}! ${currentOrder.icon}`;
+            document.getElementById('customer-info').innerText = `Looking for ${currentOrder.name} (₹${currentOrder.price})`;
+        }
+
+        function showEmojiFloat() {
+            const container = document.getElementById('customer-section');
+            const emojiEl = document.createElement('div');
+            emojiEl.className = 'emoji-float';
+            emojiEl.innerText = wowEmojis[Math.floor(Math.random() * wowEmojis.length)];
+            container.appendChild(emojiEl);
+
+            setTimeout(() => emojiEl.remove(), 800);
+        }
+
+        function sellItem(itemName, price) {
+            const statusMsg = document.getElementById('status-msg');
+
+            if (itemName === currentOrder.name) {
+                playSound('success');
+                showEmojiFloat();
+                levelEarned += price;
+                updateUI();
+
+                if (levelEarned >= levelTarget) {
+                    clearInterval(timerInterval);
+                    levelWin();
+                } else {
+                    statusMsg.innerText = `✅ Billed ₹${price} for ${itemName}!`;
+                    statusMsg.style.color = '#55efc4';
+
+                    setTimeout(() => {
+                        newCustomer();
+                        statusMsg.innerText = 'New anime customer at counter!';
+                        statusMsg.style.color = '#ffffff';
+                    }, 600);
+                }
+            } else {
+                playSound('error');
+                statusMsg.innerText = `❌ Wrong Item! Asked for ${currentOrder.name}.`;
+                statusMsg.style.color = '#ff7675';
+            }
+        }
+
+        function levelWin() {
+            let stars = '⭐️⭐️⭐️';
+            let msg = 'Super Fast Speed! You got 3 Stars!';
+
+            if (timeLeft < 15) {
+                stars = '⭐️⭐️';
+                msg = 'Good job! You got 2 Stars!';
+            } else if (timeLeft < 8) {
+                stars = '⭐️';
+                msg = 'Completed! You got 1 Star!';
+            }
+
+            document.getElementById('overlay-title').innerText = '🎉 LEVEL COMPLETED!';
+            document.getElementById('overlay-stars').innerText = stars;
+            document.getElementById('overlay-msg').innerText = msg;
+            document.getElementById('overlay-btn').innerText = 'Play Next Level ➔';
+            document.getElementById('overlay-btn').onclick = nextLevel;
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function gameOver() {
+            playSound('error');
+            document.getElementById('overlay-title').innerText = '⏰ TIME OVER!';
+            document.getElementById('overlay-stars').innerText = '❌❌❌';
+            document.getElementById('overlay-msg').innerText = 'You ran out of time! Try again.';
+            document.getElementById('overlay-btn').innerText = 'Retry Level 🔄';
+            document.getElementById('overlay-btn').onclick = retryLevel;
+            document.getElementById('overlay').style.display = 'flex';
+        }
+
+        function retryLevel() {
+            levelEarned = 0;
+            document.getElementById('overlay').style.display = 'none';
+            updateUI();
+            startTimer();
+            newCustomer();
+        }
+
+        function nextLevel() {
+            if (currentLevel < 50) {
+                currentLevel++;
+                levelTarget = currentLevel * 500;
+                levelEarned = 0;
+                document.getElementById('overlay').style.display = 'none';
+                updateUI();
+                startTimer();
+                newCustomer();
+            } else {
+                alert('🏆 Amazing! You mastered all 50 Levels!');
+            }
+        }
+
+        // Start Game
+        updateUI();
+        startTimer();
+        newCustomer();
+    </script>
+</body>
+</html>
