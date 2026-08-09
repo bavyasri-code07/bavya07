@@ -255,6 +255,8 @@ function setupNeuralBackground() {
     requestAnimationFrame(step);
   }
 
+
+Preview
   resize();
   window.addEventListener('resize', resize);
   requestAnimationFrame(step);
@@ -264,5 +266,18 @@ document.querySelectorAll('.glow-card').forEach(card => {
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--x', `${e.clientX - rect.left}px`);
         card.style.setProperty('--y', `${e.clientY - rect.top}px`);
+       const themeToggleBtn = document.getElementById('theme-toggle');
+
+themeToggleBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeToggleBtn.textContent = '🌙'; 
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggleBtn.textContent = '☀️'; 
+    }
+});
     });
 });
