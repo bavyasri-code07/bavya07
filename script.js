@@ -266,5 +266,18 @@ document.querySelectorAll('.glow-card').forEach(card => {
         const rect = card.getBoundingClientRect();
         card.style.setProperty('--x', `${e.clientX - rect.left}px`);
         card.style.setProperty('--y', `${e.clientY - rect.top}px`)
+    }
+      .profile-card {
+    width: 120px;  /* புகைப்படத்தின் அகலத்தைக் குறைக்க */
+    height: 120px; /* புகைப்படத்தின் உயரத்தைக் குறைக்க */
+    border-radius: 50%; /* வட்ட வடிவமாக மாற்ற */
+    overflow: hidden;
+}
+
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* படம் சிதைந்து போகாமல் சரியாகப் பொருந்த */
+}
  });
 });
