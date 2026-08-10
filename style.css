@@ -763,4 +763,18 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+   .contact-card {
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.contact-item  
+   {
+    font-size: 14px;
+    margin: 10px 0;
+}
 }
