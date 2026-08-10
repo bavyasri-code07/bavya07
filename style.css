@@ -891,6 +891,30 @@ body {
     background: #FFF;
     box-shadow: 1745px 1275px #fff, 1550px 420px #fff, 1200px 900px #fff;
     animation: animStar 50s linear infinite;
+   .profile-card {
+    width: 150px;  /* பெட்டியின் அளவைச் சின்னதாக்க */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* போட்டோவை வெட்டாமல் முழுமையாகக் காட்ட */
+   .profile-card {
+    width: 150px;  /* பெட்டியின் அளவைச் சின்னதாக்க */
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* போட்டோவை வெட்டாமல் முழுமையாகக் காட்ட */
+}
+}
 }
 
 #stars::after {
