@@ -1,233 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Bavya Sri | Portfolio</title>
-    <link rel="stylesheet"href="style.css">
-</head>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-            color: #222;
-        }
-
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: #222;
-            color: white;
-        }
-
-        .profile-box {
-            width: 220px;
-            margin: 0 auto 20px;
-            padding: 15px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-
-        .profile-box img {
-            width: 190px;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 15px;
-        }
-
-        header h1 {
-            margin: 10px 0;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 25px auto;
-            padding: 25px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        .project {
-            padding: 15px;
-            margin: 15px 0;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-        }
-
-        .project a {
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .contact a {
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #222;
-            color: white;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- PROFILE -->
-    <header>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
 
-        <div class="profile-box">
-            <img src="AKKA.jpg" alt="Bavya Sri Profile Photo">
+        <div class="particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="#home" class="logo">Bavya Sri</a>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
 
-        <h1>Bavya Sri</h1>
-
-        <h2>ASPIRING SOFTWARE DEVELOPER | AI ENTHUSIAST</h2>
-
-        <p>
-            Passionate about Programming, Web Development
-            and Artificial Intelligence.
-        </p>
-
-    </header>
+    </nav>
 
 
-    <!-- ABOUT ME -->
-    <section>
+    <!-- Home -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>
+                Hi, I'm <span>Bavya Sri</span>
+            </h1>
+
+            <h2>
+                Aspiring Software Developer
+                <br>
+                <span>AI Enthusiast</span>
+            </h2>
+
+            <p class="hero-description">
+                I am passionate about programming, web development
+                and Artificial Intelligence. I love learning new
+                technologies and building practical projects.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#projects" class="primary-btn">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="secondary-btn">
+                    Contact Me
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Profile -->
+        <div class="profile-area">
+
+            <div class="profile-glow"></div>
+
+            <div class="profile-card">
+
+                <img src="AKKA.jpg"
+                     alt="Bavya Sri Profile Photo">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section id="about" class="content-section">
+
+        <p class="section-label">01 — ABOUT ME</p>
 
         <h2>About Me</h2>
 
-        <p>
-            I am an aspiring software developer who loves learning
-            new technologies and building practical projects.
-            I am interested in programming, web development
-            and Artificial Intelligence.
-        </p>
+        <div class="glass-card">
 
-    </section>
-
-
-    <!-- EDUCATION -->
-    <section>
-
-        <h2>Education</h2>
-
-        <ul>
-            <li>Don Bosco College, Dharmapuri</li>
-            <li>HDCA - Completed</li>
-            <li>CSC Computer Coaching, Dharmapuri</li>
-        </ul>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section>
-
-        <h2>Skills</h2>
-
-        <ul>
-            <li>C</li>
-            <li>C++</li>
-            <li>Python</li>
-            <li>JavaScript</li>
-            <li>Java</li>
-            <li>HTML & CSS</li>
-        </ul>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section>
-
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>🎮 Game 1</h3>
-            <p>My first JavaScript game.</p>
-            <a href="kuil2game.html">Play Game 1</a>
-        </div>
-
-
-        <div class="project">
-            <h3>🎮 Game 2</h3>
-            <p>My second JavaScript game.</p>
-            <a href="makeup.html">Play Game 2</a>
-        </div>
-
-
-        <div class="project">
-            <h3>🧮 Calculator</h3>
             <p>
-                Calculator built using HTML, CSS and JavaScript.
+                I am an aspiring software developer who is interested
+                in programming, web development and Artificial Intelligence.
+                I enjoy learning new technologies and improving my coding
+                skills by building practical projects.
             </p>
-            <a href="calc.html">Open Calculator</a>
+
         </div>
 
     </section>
 
 
-    <!-- INTERESTS -->
-    <section>
+    <!-- Education -->
+    <section id="education" class="content-section">
 
-        <h2>My Interests</h2>
+        <p class="section-label">02 — EDUCATION</p>
 
-        <p>
-            I am very interested in Artificial Intelligence
-            and modern technologies.
-        </p>
+        <h2>My Education</h2>
+
+        <div class="card-grid">
+
+            <div class="glass-card">
+                <span class="card-icon">🎓</span>
+                <h3>Don Bosco College</h3>
+                <p>Dharmapuri</p>
+            </div>
+
+            <div class="glass-card">
+                <span class="card-icon">📚</span>
+                <h3>HDCA</h3>
+                <p>Completed</p>
+            </div>
+
+            <div class="glass-card">
+                <span class="card-icon">💻</span>
+                <h3>CSC Computer Coaching</h3>
+                <p>Dharmapuri</p>
+                <p>C, C++ and Python</p>
+            </div>
+
+        </div>
 
     </section>
 
 
-    <!-- MY DREAM -->
-    <section>
+    <!-- Skills -->
+    <section id="skills" class="content-section">
 
-        <h2>My Dream</h2>
+        <p class="section-label">03 — SKILLS</p>
 
-        <p>
-            My dream is to become a skilled software developer
-            and build useful projects using Programming,
-            Web Development and Artificial Intelligence.
-        </p>
+        <h2>Technologies I Know</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">C</div>
+            <div class="skill-card">C++</div>
+            <div class="skill-card">Python</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">Java</div>
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+
+        </div>
 
     </section>
 
 
-    <!-- CONTACT -->
-    <section class="contact">
+    <!-- Projects -->
+    <section id="projects" class="content-section">
 
-        <h2>Contact Me</h2>
+        <p class="section-label">04 — PROJECTS</p>
 
-        <p>
-            📧 Email:
-            <a href="mailto:BAVYAS2009@gmail.com">
-                BAVYAS2009@gmail.com
+        <h2>Things I've Built</h2>
+
+        <div class="project-grid">
+
+
+            <!-- Project 1 -->
+            <div class="project-card">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <div class="project-icon">
+                    🎮
+                </div>
+
+                <h3>JavaScript Game 1</h3>
+
+                <p>
+                    My first JavaScript game project.
+                </p>
+
+                <a href="kuil2game.html"
+                   class="project-btn">
+                    Play Game →
+                </a>
+
+            </div>
+
+
+            <!-- Project 2 -->
+            <div class="project-card">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <div class="project-icon">
+                    🎮
+                </div>
+
+                <h3>JavaScript Game 2</h3>
+
+                <p>
+                    My second JavaScript game project.
+                </p>
+
+                <a href="makeup.html"
+                   class="project-btn">
+                    Play Game →
+                </a>
+
+            </div>
+
+
+            <!-- Project 3 -->
+            <div class="project-card">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <div class="project-icon">
+                    🧮
+                </div>
+
+                <h3>Calculator</h3>
+
+                <p>
+                    A calculator built using HTML,
+                    CSS and JavaScript.
+                </p>
+
+                <a href="calc.html"
+                   class="project-btn">
+                    Open Calculator →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Interests -->
+    <section class="content-section">
+
+        <p class="section-label">05 — INTERESTS</p>
+
+        <h2>What I Love</h2>
+
+        <div class="interest-grid">
+
+            <div class="glass-card">
+                🤖
+                <h3>Artificial Intelligence</h3>
+            </div>
+
+            <div class="glass-card">
+                🌐
+                <h3>Web Development</h3>
+            </div>
+
+            <div class="glass-card">
+                💻
+                <h3>Programming</h3>
+            </div>
+
+            <div class="glass-card">
+                🚀
+                <h3>Learning New Technologies</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dream -->
+    <section class="dream-section">
+
+        <p class="section-label">06 — MY DREAM</p>
+
+        <h2>
+            "My dream is to become a skilled software developer
+            and build useful projects using programming,
+            web development and Artificial Intelligence."
+        </h2>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section id="contact" class="content-section contact-section">
+
+        <p class="section-label">07 — CONTACT</p>
+
+        <h2>Let's Connect</h2>
+
+        <p class="contact-description">
+            Feel free to reach out to me.
+        </p>
+
+        <div class="contact-grid">
+
+            <a href="mailto:BAVYAS2009@gmail.com"
+               class="contact-card">
+
+                <span>📧</span>
+
+                <div>
+                    <small>Email</small>
+                    <strong>BAVYAS2009@gmail.com</strong>
+                </div>
+
             </a>
-        </p>
 
-        <p>
-            📱 Phone:
-            <a href="tel:9360784058">
-                9360784058
+
+            <a href="tel:9360784058"
+               class="contact-card">
+
+                <span>📱</span>
+
+                <div>
+                    <small>Phone</small>
+                    <strong>9360784058</strong>
+                </div>
+
             </a>
-        </p>
+
+        </div>
 
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- Footer -->
     <footer>
 
         <p>
@@ -235,7 +366,11 @@
         </p>
 
     </footer>
-    <!--javascript-->
+
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
+
 </body>
+
 </html>
