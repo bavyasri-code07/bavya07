@@ -874,7 +874,7 @@ body {
 .send-btn:hover {
     opacity: 0.9;
    /* Background Animation Styles */
-.bg-animation {
+.background-animation {
     position: fixed;
     top: 0;
     left: 0;
