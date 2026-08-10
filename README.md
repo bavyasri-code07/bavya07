@@ -1,47 +1,57 @@
-# Bavya Sri — Portfolio Website
+Update my README.md to match my current portfolio website.
 
-A personal portfolio site built with plain **HTML5, CSS3, and JavaScript** — no frameworks,
-so it's easy to read, edit, and grow as you learn more.
+Replace the existing README content completely with a simple, clean and professional README for Bavya Sri.
 
-## Files
+Use only these details:
 
-```
-portfolio/
-├── index.html         → all page content and structure
-├── style.css           → all visual styling (colors, fonts, layout, animation)
-├── script.js            → nav menu, typing effect, scroll animations, background
-├── images/
-│   ├── profile.jpg      → your photo (used in the hero + about section)
-│   └── projects/        → put project screenshots here as you add them
-└── README.md            → this file
-```
+# Bavya Sri — Portfolio
 
-## How to view it
+I am an aspiring software developer and AI enthusiast interested in programming, web development and Artificial Intelligence.
 
-Just double-click `index.html` to open it in your browser — no server or install needed.
+## Education
+- Don Bosco College, Dharmapuri
+- HDCA — Completed
+- CSC Computer Coaching, Dharmapuri
 
-## How to update things later
+## Skills
+- C
+- C++
+- Python
+- JavaScript
+- Java
+- HTML
+- CSS
 
-- **Text content:** open `index.html` and edit the text between the tags. Each section is
-  labelled with an HTML comment like `<!-- ============ ABOUT ============ -->`.
-- **Colors/fonts:** open `style.css` and look at the `:root { ... }` block at the very top —
-  every color and font is defined once there as a variable, so changing `--accent` changes
-  the accent color everywhere.
-- **Project links:** in `index.html`, find the `<button class="btn btn-disabled">` in the
-  Projects section and replace it with a real `<a href="your-link" class="btn btn-primary">`
-  once your projects are live somewhere (like GitHub Pages).
-- **Contact links:** find the `contact-card` links in the Contact section and swap the `href="#"`
-  placeholders and label text for your real email/GitHub/LinkedIn/Instagram once you have them.
-- **New project card:** copy one `<article class="project-card ...">` block and edit its content.
-- **New skill card:** copy one `<div class="skill-card ...">` block inside `.skills-grid`.
+## Projects
 
-## Notes on the design
+### 🎮 JavaScript Game 1
+My first JavaScript game.
+Link: kuil2game.html
 
-- Dark, AI-themed look with a soft neural-network animation in the background (`script.js`,
-  `setupNeuralBackground`) — drawn on a `<canvas>`, so it's lightweight and needs no images.
-- The little code-style panel in the hero (`bavya.js`) is just styled HTML/CSS, not real
-  executable code — a nod to the fact that you're a developer, without needing a code engine.
-- All skill levels are shown as honest labels (Learning / Strong Foundation / Building
-  Projects) instead of fake percentages — update these labels as your skills actually grow.
-- Animations respect `prefers-reduced-motion`, so they turn off automatically for anyone who
-  has that accessibility setting enabled.
+### 🎮 JavaScript Game 2
+My second JavaScript game.
+Link: makeup.html
+
+### 🧮 Calculator
+A calculator built using HTML, CSS and JavaScript.
+Link: calc.html
+
+## Interests
+- Artificial Intelligence
+- Web Development
+- Programming
+- Learning new technologies
+
+## My Dream
+My dream is to become a skilled software developer and build useful projects using programming, web development and Artificial Intelligence.
+
+## Contact
+Email: BAVYAS2009@gmail.com
+Phone: 9360784058
+
+## Technologies Used
+HTML, CSS and JavaScript.
+
+Keep the README simple and professional.
+Remove the old instructions, placeholder text, design notes, file explanations, and unnecessary technical documentation.
+Do not invent any additional information.
