@@ -888,7 +888,7 @@ body {
 #stars {
     width: 1px;
     height: 1px;
-    background: FFF;
+    background: #FFF;
     box-shadow: 1745px 1275px #fff, 1550px 420px #fff, 1200px 900px #fff;
     animation: animStar 50s linear infinite;
 }
