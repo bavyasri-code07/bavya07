@@ -834,7 +834,31 @@ footer {
 
 @media (max-width: 800px) {
     .education-grid {
-        grid-template-columns: 1fr;
+        gri
+            .education-card {
+    padding: 30px;
+    border: 2px solid rgba(90, 210, 255, 0.6);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);
+    margin-bottom: 25px;
+}
+
+.education-card h3 {
+    color: #7de0ff;
+    margin-bottom: 12px;
+}
+
+.education-card h4 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.education-card p {
+    color: #d8efff;
+    line-height: 1.7;
+}d-template-columns: 1fr;
     }
 }
 }
