@@ -597,4 +597,19 @@ footer {
     text-decoration: none;
     margin-top: 10px;
 }
+    .certificate-card {
+    background: rgba(255, 255, 255, 0.96);
+    color: #111;
+    position: relative;
+    z-index: 2;
+}
+
+.certificate-card h3,
+.certificate-card p {
+    color: #111;
+}
+
+.certificate-card img {
+    background: white;
+}
 }
