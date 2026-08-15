@@ -1,550 +1,249 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: #050816;
-    color: #ffffff;
-    line-height: 1.6;
-    overflow-x: hidden;
-}
-
-/* Animated Background */
-
-.background-animation {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    z-index: -2;
-    background:
-        radial-gradient(circle at 20% 20%, #312e81 0, transparent 30%),
-        radial-gradient(circle at 80% 70%, #164e63 0, transparent 30%),
-        #050816;
-}
-
-.glow {
-    position: absolute;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.35;
-    animation: floatGlow 10s ease-in-out infinite alternate;
-}
-
-.glow-1 {
-    background: #2563eb;
-    top: 10%;
-    left: 5%;
-}
-
-.glow-2 {
-    background: #9333ea;
-    right: 5%;
-    top: 30%;
-    animation-delay: 2s;
-}
-
-.glow-3 {
-    background: #06b6d4;
-    bottom: 5%;
-    left: 40%;
-    animation-delay: 4s;
-}
-
-@keyframes floatGlow {
-    from {
-        transform: translate(0, 0) scale(1);
-    }
-
-    to {
-        transform: translate(80px, -60px) scale(1.2);
-    }
-}
-
-/* Particles */
-
-.particles span {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #67e8f9;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #22d3ee;
-    animation: particleMove 8s linear infinite;
-}
-
-.particles span:nth-child(1) {
-    left: 10%;
-    top: 80%;
-    animation-delay: 0s;
-}
-
-.particles span:nth-child(2) {
-    left: 25%;
-    top: 30%;
-    animation-delay: 1s;
-}
-
-.particles span:nth-child(3) {
-    left: 45%;
-    top: 70%;
-    animation-delay: 2s;
-}
-
-.particles span:nth-child(4) {
-    left: 65%;
-    top: 20%;
-    animation-delay: 3s;
-}
-
-.particles span:nth-child(5) {
-    left: 80%;
-    top: 80%;
-    animation-delay: 4s;
-}
-
-.particles span:nth-child(6) {
-    left: 90%;
-    top: 40%;
-    animation-delay: 5s;
-}
-
-.particles span:nth-child(7) {
-    left: 35%;
-    top: 10%;
-    animation-delay: 6s;
-}
-
-.particles span:nth-child(8) {
-    left: 55%;
-    top: 50%;
-    animation-delay: 7s;
-}
-
-@keyframes particleMove {
-    0% {
-        transform: translateY(0);
-        opacity: 0;
-    }
-
-    30% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(-180px);
-        opacity: 0;
-    }
-}
-
-/* Navbar */
-
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 7%;
-    background: rgba(5, 8, 22, 0.75);
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.logo {
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.nav-links {
-    display: flex;
-    gap: 22px;
-}
-
-.nav-links a {
-    color: #cbd5e1;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.nav-links a:hover {
-    color: #67e8f9;
-}
-
-/* Hero */
-
-.hero {
-    min-height: 90vh;
-    max-width: 1200px;
-    margin: auto;
-    padding: 100px 7%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
-}
-
-.welcome,
-.section-label {
-    color: #67e8f9;
-    font-size: 14px;
-    letter-spacing: 3px;
-    font-weight: bold;
-}
-
-.hero h1 {
-    font-size: clamp(45px, 7vw, 85px);
-    line-height: 1.05;
-    margin: 15px 0;
-}
-
-.hero h1 span {
-    color: #67e8f9;
-}
-
-.hero h2 {
-    color: #c4b5fd;
-    font-size: 28px;
-}
-
-.hero-description {
-    max-width: 600px;
-    margin: 25px 0;
-    color: #94a3b8;
-    font-size: 18px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-}
-
-.hero-buttons a {
-    padding: 13px 22px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.primary-btn {
-    background: #2563eb;
-    color: white;
-}
-
-.secondary-btn {
-    border: 1px solid #475569;
-    color: white;
-}
-
-.hero-buttons a:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 25px rgba(37,99,235,0.5);
-}
-
-/* Profile */
-
-.profile-area {
-    position: relative;
-}
-
-.profile-card {
-    width: 320px;
-    height: 380px;
-    padding: 10px;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #22d3ee, #8b5cf6, #2563eb);
-    box-shadow: 0 0 60px rgba(59,130,246,0.35);
-    animation: profileFloat 5s ease-in-out infinite;
-}
-
-.profile-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 23px;
-}
-
-@keyframes profileFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-/* Sections */
-
-.content-section {
-    max-width: 1100px;
-    margin: 120px auto;
-    padding: 0 7%;
-}
-
-.content-section h2,
-.dream-section h2 {
-    font-size: clamp(35px, 5vw, 60px);
-    margin: 12px 0 35px;
-}
-
-.glass-card,
-.info-box,
-.project-card,
-.skill-card,
-.interest-box,
-.contact-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(15px);
-}
-
-/* Glass Card */
-
-.glass-card {
-    padding: 30px;
-    border-radius: 20px;
-    color: #cbd5e1;
-}
-
-/* Education */
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.info-box {
-    padding: 28px;
-    border-radius: 20px;
-    transition: 0.3s;
-}
-
-.info-box:hover {
-    transform: translateY(-8px);
-    border-color: #22d3ee;
-    box-shadow: 0 0 25px rgba(34,211,238,0.2);
-}
-
-.card-icon {
-    font-size: 30px;
-}
-
-/* Skills */
-
-.skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.skill-card {
-    padding: 16px 25px;
-    border-radius: 14px;
-    color: #67e8f9;
-    transition: 0.3s;
-}
-
-.skill-card:hover {
-    transform: translateY(-6px) scale(1.05);
-    background: rgba(34,211,238,0.12);
-    box-shadow: 0 0 25px rgba(34,211,238,0.2);
-}
-
-/* Projects */
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.project-card {
-    position: relative;
-    padding: 30px;
-    border-radius: 22px;
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-.project-card:hover {
-    transform: translateY(-12px);
-    border-color: #8b5cf6;
-    box-shadow: 0 20px 50px rgba(139,92,246,0.2);
-}
-
-.project-number {
-    color: #64748b;
-}
-
-.project-icon {
-    font-size: 42px;
-    margin: 20px 0;
-}
-
-.project-card h3 {
-    font-size: 24px;
-}
-
-.project-card p {
-    color: #94a3b8;
-    margin: 10px 0 20px;
-}
-
-.project-btn {
-    color: #67e8f9;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Interests */
-
-.interest-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-}
-
-.interest-box {
-    padding: 25px;
-    border-radius: 18px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.interest-box:hover {
-    transform: translateY(-7px);
-    border-color: #67e8f9;
-}
-
-/* Dream */
-
-.dream-section {
-    max-width: 1000px;
-    margin: 150px auto;
-    padding: 70px 7%;
-    text-align: center;
-}
-
-.dream-section h2 {
-    color: #c4b5fd;
-}
-
-/* Contact */
-
-.contact-description {
-    color: #94a3b8;
-    margin-bottom: 25px;
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-.contact-card {
-    padding: 25px;
-    border-radius: 18px;
-    display: flex;
-    gap: 18px;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.contact-card:hover {
-    transform: translateY(-6px);
-    border-color: #22d3ee;
-}
-
-.contact-card span {
-    font-size: 30px;
-}
-
-.contact-card small {
-    display: block;
-    color: #94a3b8;
-}
-
-.contact-card strong {
-    color: #67e8f9;
-}
-
-/* Footer */
-
-footer {
-    padding: 35px;
-    text-align: center;
-    color: #64748b;
-    border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-/* Scroll Reveal */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 0.8s ease;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Mobile */
-
-@media (max-width: 850px) {
-
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero {
-        flex-direction: column-reverse;
-        text-align: center;
-        padding-top: 70px;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .profile-card {
-        width: 260px;
-        height: 310px;
-    }
-
-    .card-grid,
-    .project-grid,
-    .interest-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bavya Sri | Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar">
+
+        <div class="logo">BAVYA</div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+    </nav>
+
+
+    <!-- home -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <img src="./amma.jpg"
+                 alt="Bavya Sri"
+                 class="profile-photo">
+
+            <p class="small-title">HELLO, I'M</p>
+
+            <h1>Bavya Sri</h1>
+
+            <h2>Full Stack Developer</h2>
+
+            <p class="hero-text">
+                Creative developer passionate about building
+                beautiful and interactive websites.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- about -->
+    <section id="about" class="section">
+
+        <p class="section-label">01 — ABOUT</p>
+
+        <h2>About Me</h2>
+
+        <div class="glass-card">
+
+            <p>
+                I am Bavya Sri, a passionate developer interested
+                in web development and technology.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- skills -->
+    <section id="skills" class="section">
+
+        <p class="section-label">02 — SKILLS</p>
+
+        <h2>My Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">HTML</div>
+            <div class="skill-card">CSS</div>
+            <div class="skill-card">JavaScript</div>
+            <div class="skill-card">C</div>
+            <div class="skill-card">C++</div>
+            <div class="skill-card">SQL</div>
+            <div class="skill-card">Digital Marketing</div>
+            <div class="skill-card">GitHub</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- projects -->
+    <section id="projects" class="section">
+
+        <p class="section-label">03 — PROJECTS</p>
+
+        <h2>My Projects</h2>
+
+        <div class="projects-grid">
+
+            <!-- kuil2game -->
+            <div class="project-card">
+
+                <h3>kuil2game</h3>
+
+                <p>
+                    A fun browser game project.
+                </p>
+
+                <a href="./kuil2game.html">
+                    Open Game
+                </a>
+
+            </div>
+
+
+            <!-- mackup -->
+            <div class="project-card">
+
+                <h3>Mackup</h3>
+
+                <p>
+                    A creative makeup website project.
+                </p>
+
+                <a href="./mackup.html">
+                    Open Project
+                </a>
+
+            </div>
+
+
+            <!-- calculator -->
+            <div class="project-card">
+
+                <h3>Calculator</h3>
+
+                <p>
+                    A simple interactive calculator.
+                </p>
+
+                <a href="./calc.html">
+                    Open Calculator
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- certificates -->
+    <section id="certificates" class="section">
+
+        <p class="section-label">04 — CERTIFICATES</p>
+
+        <h2>My Certificates</h2>
+
+        <div class="certificate-card">
+
+            <h3>Front Page</h3>
+
+            <p>
+                Honours Diploma in Computer Application
+            </p>
+
+            <a href="./csc1.jpg" target="_blank">
+                View Certificate
+            </a>
+
+        </div>
+
+
+        <div class="certificate-card">
+
+            <h3>Transcript</h3>
+
+            <p>
+                Course Transcript
+            </p>
+
+            <a href="./csc2.jpg" target="_blank">
+                View Transcript
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- contact -->
+    <section id="contact" class="section">
+
+        <p class="section-label">05 — CONTACT</p>
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-card">
+
+            <p>
+                📞
+                <a href="tel:919360784058">
+                    919360784058
+                </a>
+            </p>
+
+
+            <p>
+                📧
+                <a href="mailto:bavyas2009@gamil.com">
+                    bavyas2009@gamil.com
+                </a>
+            </p>
+
+
+            <p>
+                💻
+                <a href="https://github.com/bavyasri-code07"
+                   target="_blank">
+                    bavyasri-code07
+                </a>
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- footer -->
+    <footer>
+
+        <p>
+            © 2026 Bavya Sri "Learning,building,and growing everyday!"
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
