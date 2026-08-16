@@ -563,4 +563,29 @@ footer p + p {
     transform: translateY(0);
     visibility: visible;
 }
+    /* NAVIGATION FIX */
+
+.navbar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+.nav-links {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 18px !important;
+    align-items: center !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.nav-links a {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #ffffff !important;
+    white-space: nowrap !important;
+}
 }
