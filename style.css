@@ -585,3 +585,27 @@ footer p + p {
     font-size: 14px !important;
     white-space: nowrap !important;
 }
+    body {
+    background: #ffffff;
+    color: #111111;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background: #080808;
+    color: #ffffff;
+}
+
+#themeToggle {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #111111;
+    color: #ffffff;
+}
+
+body.dark-mode #themeToggle {
+    background: #ffffff;
+    color: #111111;
+}
