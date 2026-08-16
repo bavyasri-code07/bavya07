@@ -1,328 +1,616 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ta">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bavya Sri | Portfolio</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
+    <title>StudyMate AI</title>
+
+    <!-- CSS FILE -->
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-    <!-- Animated stars -->
-    <div id="stars"></div>
+<div class="app">
 
-    <!-- Glow background -->
-    <div class="glow glow-1"></div>
-    <div class="glow glow-2"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- =================================================
+         HEADER
+    ================================================== -->
 
-        <div class="logo">BAVYASRI</div>
+    <header class="top-bar">
 
-        <div class="nav-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#education">Education</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#certificates">Certificates</a>
-            <a href="#contact">Contact</a>
+        <div class="brand">
+
+            <!-- Cute Robot Logo -->
+
+            <div class="robot-logo">
+
+                <div class="antenna"></div>
+
+                <div class="robot-head">
+
+                    <div class="robot-eyes">
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="robot-mouth"></div>
+
+                </div>
+
+                <div class="robot-body">
+
+                    <div class="robot-heart">
+                        ♥
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="brand-text">
+
+                <h1>StudyMate AI</h1>
+
+                <p>
+                    Your Friendly Learning Companion 🤖
+                </p>
+
+            </div>
+
         </div>
 
-    </nav>
+
+        <button
+            class="new-chat-btn"
+            onclick="newChat()">
+
+            ＋ New Chat
+
+        </button>
+
+    </header>
 
 
-    <!-- HOME -->
-    <section id="home" class="hero">
 
-        <img
-            src="./amma.jpg"
-            alt="Bavya Sri"
-            class="profile-photo"
-        >
+    <!-- =================================================
+         MAIN CHAT AREA
+    ================================================== -->
 
-        <p class="hello">HELLO, I'M</p>
+    <main
+        id="chat"
+        class="chat-area">
 
-        <h1>Bavya Sri</h1>
 
-        <h2>Full Stack Developer</h2>
+        <!-- ================= WELCOME ================= -->
 
-        <p class="hero-text">
-            Learning, building and growing every day.
-            I am continuously exploring computer technologies
-            and creating new projects.
+        <section class="welcome-card">
+
+            <div class="welcome-robot">
+                🤖
+            </div>
+
+
+            <h2>
+                ஹாய்! 👋
+            </h2>
+
+
+            <p class="welcome-title">
+
+                உங்களுக்கு என்ன வேணும்?
+                சொல்லுங்க. 😊
+
+            </p>
+
+
+            <p>
+
+                என்ன புரியலன்னாலும் கேளுங்க.
+                Study, Coding, Project,
+                Editing, Portfolio,
+                Speech அல்லது சும்மா friendly-ஆ
+                பேசணும்னாலும் பேசலாம்.
+
+            </p>
+
+
+            <p>
+
+                நான் முடிந்தவரை easy-ஆ
+                புரியுற மாதிரி help பண்ணுறேன். 💙
+
+            </p>
+
+
+
+            <!-- =================================================
+                 QUICK HELP OPTIONS
+            ================================================== -->
+
+            <div class="quick-section">
+
+                <h3>
+                    என்ன help வேணும்? 😊
+                </h3>
+
+
+                <div class="quick-buttons">
+
+
+                    <!-- FRIENDLY CHAT -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'ஹாய்! உங்களோட friendly-ஆ கொஞ்சம் பேசணும். என்னோட இயல்பாக பேசுங்க.'
+                        )">
+
+                        👋
+
+                        <span>
+                            சும்மா பேசலாம்
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- DAILY CONVERSATION -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'சாப்பிட்டீங்களா, என்ன பண்றீங்க, எப்படி இருக்கீங்க போன்ற friendly conversation பண்ணலாம்.'
+                        )">
+
+                        😊
+
+                        <span>
+                            Friendly Conversation
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- STUDY -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு ஒரு study doubt இருக்கு. Question-ஐ அனுப்புறேன். Answer, theory, example மற்றும் easy explanation-ஓட help பண்ணுங்க.'
+                        )">
+
+                        📚
+
+                        <span>
+                            Study-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PHYSICS -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு Physics-ல ஒரு doubt இருக்கு. Definition, theory, formula, example மற்றும் answer-ஐ easy-ஆ explain பண்ணுங்க.'
+                        )">
+
+                        ⚡
+
+                        <span>
+                            Physics-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- CHEMISTRY -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு Chemistry-ல ஒரு doubt இருக்கு. Theory, definition, reaction அல்லது question எதுவாக இருந்தாலும் simple-ஆ explain பண்ணுங்க.'
+                        )">
+
+                        🧪
+
+                        <span>
+                            Chemistry-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- MATHS -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு Maths problem இருக்கு. Question-ஐ அனுப்புறேன். Step-by-step-ஆ solve பண்ணி explain பண்ணுங்க.'
+                        )">
+
+                        ➗
+
+                        <span>
+                            Maths-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- CODING -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு coding-ல help வேணும். என்ன செய்யணும்னு சொல்றேன். அதற்கான correct code, explanation மற்றும் தேவையான steps கொடுங்க.'
+                        )">
+
+                        💻
+
+                        <span>
+                            Coding-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- HTML -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு HTML-ல ஒரு webpage உருவாக்கணும். என்ன செய்யணும்னு சொல்றேன். அதற்கான complete code மற்றும் explanation கொடுங்க.'
+                        )">
+
+                        🌐
+
+                        <span>
+                            HTML-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- CSS -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு CSS-ல website design பண்ண help வேணும். Layout, buttons, cards, animation போன்றவற்றுக்கு code கொடுங்க.'
+                        )">
+
+                        🎨
+
+                        <span>
+                            Design-க்கு என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- JAVASCRIPT -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு JavaScript-ல ஒரு feature உருவாக்கணும். என்ன செய்யணும்னு சொல்றேன். அதற்கான code மற்றும் explanation கொடுங்க.'
+                        )">
+
+                        ⚙️
+
+                        <span>
+                            JavaScript-ல என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PROJECT -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு ஒரு computer project பண்ணணும். Project idea, features, design, coding மற்றும் step-by-step guidance கொடுங்க.'
+                        )">
+
+                        🚀
+
+                        <span>
+                            Project-க்கு என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- GAME -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு ஒரு game உருவாக்கணும். எந்த மாதிரி game செய்யலாம், என்ன features வைக்கலாம் மற்றும் எப்படி code பண்ணலாம் என்று help பண்ணுங்க.'
+                        )">
+
+                        🎮
+
+                        <span>
+                            Game உருவாக்கலாம்
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- QUIZ -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'ஒரு quiz விளையாடலாம். எனக்கு questions கேளுங்க. நான் answer பண்ணுறேன்.'
+                        )">
+
+                        🧠
+
+                        <span>
+                            Quiz விளையாடலாம்
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PHOTO EDITING -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு ஒரு photo edit பண்ணணும். என்ன மாற்றம் வேண்டும் என்று சொல்றேன். அதற்கான நல்ல AI editing prompt மற்றும் steps தயார் பண்ணுங்க.'
+                        )">
+
+                        🖼️
+
+                        <span>
+                            Photo Edit-க்கு என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- INVITATION -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு ஒரு marriage invitation அல்லது function invitation design பண்ணணும். Names, date, time மற்றும் place கொடுத்தால் நல்ல design prompt மற்றும் content தயார் பண்ணுங்க.'
+                        )">
+
+                        💌
+
+                        <span>
+                            Invitation பண்ணலாம்
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- PORTFOLIO -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'எனக்கு ஒரு professional portfolio website உருவாக்கணும். என்ன sections வைக்கலாம், எப்படி design பண்ணலாம் மற்றும் தேவையான HTML CSS JavaScript code கொடுங்க.'
+                        )">
+
+                        🌐
+
+                        <span>
+                            Portfolio-க்கு என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- SPEECH -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'நான் college-ல ஒரு topic பற்றி பேசப் போறேன். Topic கொடுக்கிறேன். அதை எப்படி simple-ஆவும் confident-ஆவும் பேசலாம் என்று speech தயார் பண்ணுங்க.'
+                        )">
+
+                        🎤
+
+                        <span>
+                            Speech-க்கு என்ன help?
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- AI TOPIC -->
+
+                    <button
+                        class="quick-btn"
+                        onclick="quickAsk(
+                        'நான் Computer Artificial Intelligence பற்றி பேசப் போறேன். AI என்றால் என்ன, எப்படி வேலை செய்கிறது, examples மற்றும் பேசுவதற்கான simple speech கொடுங்க.'
+                        )">
+
+                        🤖
+
+                        <span>
+                            AI பற்றி பேசலாம்
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =================================================
+             CHAT MESSAGES
+        ================================================== -->
+
+        <div
+            id="messages"
+            class="messages">
+        </div>
+
+
+    </main>
+
+
+
+    <!-- =================================================
+         MESSAGE INPUT
+    ================================================== -->
+
+    <section class="input-section">
+
+        <div class="input-box">
+
+
+            <!-- VOICE BUTTON -->
+
+            <button
+                id="voiceBtn"
+                class="icon-btn"
+                onclick="startVoice()"
+                title="Voice Input">
+
+                🎤
+
+            </button>
+
+
+
+            <!-- MESSAGE -->
+
+            <textarea
+                id="message"
+                rows="1"
+                placeholder="StudyMate-கிட்ட என்ன சொல்லணும்?"
+                onkeydown="enterSend(event)">
+            </textarea>
+
+
+
+            <!-- FILE UPLOAD -->
+
+            <label
+                class="icon-btn file-btn"
+                title="Upload File">
+
+                📎
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    hidden
+                    onchange="handleFile(event)">
+
+            </label>
+
+
+
+            <!-- SEND -->
+
+            <button
+                class="send-btn"
+                onclick="sendMessage()"
+                title="Send">
+
+                ➤
+
+            </button>
+
+        </div>
+
+
+        <p class="input-note">
+
+            💬 Friendly Chat
+            • 💻 Coding
+            • 📚 Study
+            • 🎨 Editing
+            • 🚀 Projects
+            • 🎤 Speech
+
         </p>
 
-        <div class="hero-buttons">
-            <a href="#projects">View Projects</a>
-            <a href="#contact">Contact Me</a>
-        </div>
-
     </section>
 
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
 
-        <p class="label">01 — ABOUT</p>
-
-        <h2>About Me</h2>
-
-        <div class="glass-card">
-
-            <p>
-                I am a passionate and curious learner who is
-                continuously exploring the world of computers
-                and technology.
-            </p>
-
-            <p>
-                I enjoy learning new programming concepts,
-                building creative projects and improving my
-                skills every day.
-            </p>
-
-            <p class="learning-text">
-                Learning, building and growing every day.
-            </p>
-
-        </div>
-
-    </section
-        <!-- EDUCATION -->
-<section id="education" class="section">
-
-    <p class="label">02 — EDUCATION</p>
-
-    <h2>Education</h2>
-
-    <div class="education-grid">
-
-        <!-- BCA -->
-        <div class="education-card">
-
-            <div class="education-icon">🎓</div>
-
-            <h3>BCA — First Year Student</h3>
-
-            <h4>DON BOSCO College, Dharmapuri</h4>
-
-            <p>
-                Currently pursuing Bachelor of Computer Applications (BCA).
-            </p>
-
-        </div>
-
-
-        <!-- HDCA -->
-        <div class="education-card">
-
-            <div class="education-icon">💻</div>
-
-            <h3>HDCA — Completed</h3>
-
-            <h4>Computer Software College, Dharmapuri</h4>
-
-            <p>
-                Higher Diploma in Computer Applications (HDCA)
-                completed successfully.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-
-        <p class="label">03 — SKILLS</p>
-
-        <h2>My Skills</h2>
-
-        <div class="skills-grid">
-
-            <div class="skill-card">HTML</div>
-            <div class="skill-card">CSS</div>
-            <div class="skill-card">JavaScript</div>
-            <div class="skill-card">C</div>
-            <div class="skill-card">C++</div>
-            <div class="skill-card">SQL</div>
-            <div class="skill-card">Digital Marketing</div>
-            <div class="skill-card">Java</div>
-            <div
-class="skill-card">python</div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-
-        <p class="label">04 — PROJECTS</p>
-
-        <h2>My Projects</h2>
-
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <div class="project-icon">🎮</div>
-
-                <h3>kuil2game</h3>
-
-                <p>
-                    A fun browser game project.
-                </p>
-
-                <a href="./kuil2game.html">
-                    Open Game
-                </a>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-icon">💄</div>
-
-                <h3>Mackup</h3>
-
-                <p>
-                    A creative mackup project.
-                </p>
-
-                <a href="./mackup.html">
-                    Open Project
-                </a>
-            </div>
-
-
-            <div class="project-card">
-                <div class="project-icon">🧮</div>
-
-                <h3>Calculator</h3>
-
-                <p>
-                    A simple calculator project.
-                </p>
-
-                <a href="./calc.html">
-                    Open Calculator
-                </a>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CERTIFICATES -->
-    <section id="certificates" class="section">
-
-        <p class="label">05 — CERTIFICATES</p>
-
-        <h2>My Certificates</h2>
-
-        <div class="certificate-card">
-
-            <div class="certificate-icon">🎓</div>
-
-            <h3>Honours Diploma in Computer Application</h3>
-
-            <p>
-                Certificate Front Page
-            </p>
-
-            <a
-                href="./csc1.jpg"
-                target="_blank"
-                class="certificate-button"
-            >
-                View Certificate
-            </a>
-
-        </div>
-
-
-        <div class="certificate-card">
-
-            <div class="certificate-icon">📜</div>
-
-            <h3>Course Transcript</h3>
-
-            <p>
-                Subjects, grades and course details
-            </p>
-
-            <a
-                href="./csc2.jpg"
-                target="_blank"
-                class="certificate-button"
-            >
-                View Transcript
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-
-        <p class="label">06 — CONTACT</p>
-
-        <h2>Let's Connect</h2>
-
-        <div class="contact-grid">
-
-            <a
-                href="tel:919360784058"
-                class="contact-box"
-            >
-                <span>📞</span>
-                <h3>Phone</h3>
-                <p>919360784058</p>
-            </a>
-
-
-            <a
-                href="mailto:bavyas2009@gmail.com"
-                class="contact-box"
-            >
-                <span>📧</span>
-                <h3>Email</h3>
-                <p>bavyas2009@gmail.com</p>
-            </a>
-
-
-            <a
-                href="https://github.com/bavyasri-code07"
-                target="_blank"
-                class="contact-box"
-            >
-                <span>💻</span>
-                <h3>GitHub</h3>
-                <p>bavyasri-code07</p>
-            </a>
-
-        </div>
-
-    </section>
-
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
 
     <footer>
-        <p>© 2026 Bavya Sri “Learning today, growing every day. 🚀!”</p>
+
+        <span>
+            🤖 StudyMate AI
+        </span>
+
+        <span>
+            Learn • Code • Create • Talk
+        </span>
+
     </footer>
 
 
-    <script src="script.js"></script>
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="script.js"></script>
+<!-- உன் மற்ற content எல்லாம் -->
+
+<div id="messages"></div>
+
+<textarea
+    id="message"
+    placeholder="இங்கே message type பண்ணுங்க">
+</textarea>
+
+<button onclick="sendMessage()">
+    ➤ Send
+</button>
+
+<script src="script.js"></script>
 
 </body>
 </html>
+
+
