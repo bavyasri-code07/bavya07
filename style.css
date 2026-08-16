@@ -558,4 +558,9 @@ footer p + p {
     .education-grid {
         gap: 30px;
     }
+    .section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
 }
