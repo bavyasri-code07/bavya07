@@ -9,7 +9,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body> {
+    margin: 0;
+    min-height: 100%;
+    background: transparent;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(circle at 20% 30%, #8b5cf6, transparent 30%),
+        radial-gradient(circle at 80% 70%, #06b6d4, transparent 30%),
+        linear-gradient(135deg, #050816, #111827, #1e1b4b);
+    background-size: 200% 200%;
+    animation: bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
     <!-- Animated Background -->
     <div id="stars"></div>
