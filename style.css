@@ -565,27 +565,23 @@ footer p + p {
 }
     /* NAVIGATION FIX */
 
-.navbar {
+.navbar .nav-links {
     display: flex !important;
     flex-direction: row !important;
-    justify-content: space-between !important;
     align-items: center !important;
-}
-
-.nav-links {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 18px !important;
-    align-items: center !important;
+    gap: 20px !important;
+    width: auto !important;
+    height: auto !important;
     visibility: visible !important;
     opacity: 1 !important;
+    overflow: visible !important;
 }
 
-.nav-links a {
+.navbar .nav-links a {
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    color: #ffffff !important;
+    color: white !important;
+    font-size: 14px !important;
     white-space: nowrap !important;
-}
 }
