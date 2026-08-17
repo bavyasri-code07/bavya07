@@ -636,3 +636,42 @@ footer {
     background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
 }
+/* ✨ Glow animation for laptop & desktop */
+@keyframes portfolioGlow {
+    0%, 100% {
+        opacity: 0.65;
+        filter: brightness(0.9);
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        filter: brightness(1.5);
+        transform: scale(1.03);
+    }
+}
+
+.glow,
+.glow-effect,
+.animated-glow {
+    animation: portfolioGlow 2.5s ease-in-out infinite !important;
+}
+
+/* ✨ Animated glowing stars / particles */
+@keyframes starGlow {
+    0%, 100% {
+        opacity: 0.3;
+        box-shadow: 0 0 5px currentColor;
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 20px currentColor;
+    }
+}
+
+.star,
+.particle,
+.sparkle {
+    animation: starGlow 2s ease-in-out infinite !important;
+}
