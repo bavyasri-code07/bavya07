@@ -609,3 +609,30 @@ body.dark-mode #themeToggle {
     background: #ffffff;
     color: #111111;
 }
+/* Force dark portfolio background */
+html,
+body {
+    background: #050505 !important;
+    color: #ffffff !important;
+    color-scheme: dark;
+}
+
+body {
+    min-height: 100vh;
+}
+
+/* Keep main sections dark */
+section,
+header,
+main,
+footer {
+    background-color: transparent !important;
+}
+
+/* Keep cards readable */
+.card,
+.project-card,
+.profile-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+}
