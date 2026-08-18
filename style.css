@@ -749,3 +749,76 @@ body > * {
 .sparkle {
     animation: starGlow 2s ease-in-out infinite !important;
 }
+    /* floating background shapes */
+
+.floating-shapes {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.float-shape {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0.35;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* cubes */
+.float-shape.cube {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(120, 200, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 18px rgba(80, 180, 255, 0.35);
+    animation: floatCube 8s ease-in-out infinite;
+}
+
+/* circles */
+.float-shape.circle {
+    width: 55px;
+    height: 55px;
+    border: 1px solid rgba(180, 120, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(180, 120, 255, 0.35);
+    animation: floatCircle 10s ease-in-out infinite;
+}
+
+/* light movement */
+@keyframes floatCube {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    50% {
+        transform: translate(30px, -25px) rotate(20deg);
+    }
+}
+
+@keyframes floatCircle {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(-30px, 25px);
+    }
+}
+
+/* 360 degree rotation when touched/hovered */
+.float-shape:hover,
+.float-shape:active {
+    opacity: 0.9;
+    transform: rotate(360deg) scale(1.15) !important;
+}
+
+/* keep your portfolio content above the background */
+body > *:not(.floating-shapes) {
+    position: relative;
+    z-index: 1;
+}
