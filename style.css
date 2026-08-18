@@ -675,3 +675,77 @@ footer {
 .sparkle {
     animation: starGlow 2s ease-in-out infinite !important;
 }
+    /* ===== laptop + desktop star glow fix ===== */
+
+html {
+    min-height: 100%;
+    background: #050816;
+}
+
+body {
+    min-height: 100vh;
+    background: #050816 !important;
+    overflow-x: hidden;
+}
+
+/* Extra animated glow layer */
+html::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.9) 1px, transparent 2px),
+        radial-gradient(circle at 30% 70%, rgba(120,200,255,0.8) 1px, transparent 2px),
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.9) 1px, transparent 2px),
+        radial-gradient(circle at 90% 80%, rgba(150,120,255,0.8) 1px, transparent 2px);
+
+    background-size: 140px 140px, 180px 180px, 220px 220px, 260px 260px;
+
+    animation: laptopStars 18s linear infinite;
+    opacity: 0.8;
+}
+
+/* Make sure portfolio content stays above stars */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes laptopStars {
+    0% {
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0;
+        opacity: 0.55;
+    }
+
+    50% {
+        background-position:
+            80px 120px,
+            -100px 80px,
+            120px -80px,
+            -80px 100px;
+        opacity: 1;
+    }
+
+    100% {
+        background-position:
+            160px 240px,
+            -200px 160px,
+            240px -160px,
+            -160px 200px;
+        opacity: 0.55;
+    }
+}
+
+/* Keep existing stars glowing */
+.star,
+.particle,
+.sparkle {
+    animation: starGlow 2s ease-in-out infinite !important;
+}
