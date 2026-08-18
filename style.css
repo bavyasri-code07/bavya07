@@ -822,3 +822,20 @@ body > *:not(.floating-shapes) {
     position: relative;
     z-index: 1;
 }
+    /* 360 degree touch / hover fix */
+
+.float-shape:hover,
+.float-shape:active {
+    animation: rotateShape 1.2s linear !important;
+    opacity: 1;
+}
+
+@keyframes rotateShape {
+    from {
+        transform: rotate(0deg) scale(1.15);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.15);
+    }
+}
