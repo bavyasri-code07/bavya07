@@ -838,4 +838,25 @@ body > *:not(.floating-shapes) {
     to {
         transform: rotate(360deg) scale(1.15);
     }
+    .cursor-ring {
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(120, 210, 255, 0.8);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 0 10px rgba(120, 210, 255, 0.5),
+        0 0 25px rgba(120, 210, 255, 0.25);
+    transition:
+        left 0.08s ease-out,
+        top 0.08s ease-out,
+        transform 0.15s ease;
+}
+
+.cursor-ring:hover {
+    transform: translate(-50%, -50%) scale(1.3);
+}
 }
