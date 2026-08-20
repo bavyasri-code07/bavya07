@@ -35,6 +35,16 @@
             <a href="#contact">contact</a>
         </div>
     </nav>
+            <div class="cursor-ring"></div>
+
+<script>
+const ring = document.querySelector(".cursor-ring");
+
+document.addEventListener("mousemove", (e) => {
+    ring.style.left = e.clientX + "px";
+    ring.style.top = e.clientY + "px";
+});
+</script>
 
 
     <!-- HOME -->
