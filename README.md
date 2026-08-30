@@ -44,4 +44,4 @@ Just double-click `index.html` to open it in your browser — no server or insta
 - All skill levels are shown as honest labels (Learning / Strong Foundation / Building
   Projects) instead of fake percentages — update these labels as your skills actually grow.
 - Animations respect `prefers-reduced-motion`, so they turn off automatically for anyone who
-  has that accessibility setting enabled.
+  has that accessibility setting enabled..
