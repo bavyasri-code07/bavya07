@@ -2,341 +2,388 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Mobile Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>BCA Learning Hub</title>
+    <title>Bavya Sri | Portfolio</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+    <body>
+        <body>
 
-<body>
-
-    <!-- Animated Background -->
-    <div class="background-animation">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+    <!-- இங்கே இந்த code -->
+    <div class="floating-shapes">
+        ...
     </div>
 
+    <!-- உன் existing portfolio code -->
 
-    <!-- HEADER -->
+    <!-- Animated Background -->
+    <div id="stars"></div>
 
-    <header class="header">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Bavya Sri</div>
 
-        <div class="logo">
-            📚 BCA Learning Hub
+        <div class="nav-links">
+            <a href="#home">home</a>
+            <a href="#About">About</a>
+            <a href="#Education">Education </a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#certificates">certificates</a>
+            <a href="#contact">contact</a>
         </div>
+    </nav>
+            <div class="cursor-ring"></div>
 
-        <button id="themeToggle" class="theme-button">
-            🌙 Dark
-        </button>
+<script>
+const ring = document.querySelector(".cursor-ring");
 
-    </header>
-
-
-    <!-- HERO -->
-
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-content">
-
-                <p class="small-title">
-                    WELCOME TO
-                </p>
-
-                <h1>
-                    BCA Learning Hub
-                </h1>
-
-                <p class="hero-text">
-                    Learn Programming, Web Development,
-                    Java, Python, JavaScript and more —
-                    all in one place.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#languages" class="primary-button">
-                        Start Learning 🚀
-                    </a>
-
-                    <a href="#resources" class="secondary-button">
-                        Explore Resources
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
+document.addEventListener("mousemove", (e) => {
+    ring.style.left = e.clientX + "px";
+    ring.style.top = e.clientY + "px";
+});
+</script>
 
 
-        <!-- SEARCH -->
+    <!-- HOME -->
+    <section id="home" class="section hero">
 
-        <section class="search-section">
+        <div class="hero-content">
 
-            <h2>🔍 Find What You Want to Learn</h2>
-
-            <input
-                type="text"
-                id="searchBox"
-                placeholder="Search Java, Python, HTML..."
+            <!-- Profile Photo -->
+            <img
+                src="amma.jpg"
+                alt="Bavya Sri"
+                class="profile-photo"
             >
 
-        </section>
+            <p class="label">WELCOME TO MY PORTFOLIO</p>
+
+            <h1>Bavya Sri</h1>
+
+            <h3>BCA First Year Student</h3>
+
+            <p class="hero-text">
+                Learning Computer Science, Programming,
+                Web Development and Artificial Intelligence.
+            </p>
+
+        </div>
+
+    </section>
 
 
-        <!-- LANGUAGES -->
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
 
-        <section id="languages">
+        <p class="label">01 — ABOUT</p>
 
-            <div class="section-heading">
+        <h2>About Me</h2>
 
-                <p>LEARNING</p>
+        <div class="glass-card">
 
-                <h2>💻 Programming Languages</h2>
+            <p>
+                Hi, I'm Bavya Sri. I am a BCA First Year student DON bosco college Dharmapuri,
+                who is interested in computers, programming,
+                web development and Artificial Intelligence.
+            </p>
 
-            </div>
+            <p>
+                I love learning new technologies and creating
+                creative projects while improving my technical
+                skills step by step.
+            </p>
 
+            <p>
+                <strong>Learning today, building tomorrow.</strong>
+            </p>
 
-            <div class="language-grid">
+        </div>
 
-                <div class="language-card">
-
-                    <div class="card-icon">🌐</div>
-
-                    <h3>HTML</h3>
-
-                    <p>
-                        Learn the basic structure of websites.
-                    </p>
-
-                    <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/HTML"
-                        target="_blank"
-                    >
-                        Learn HTML →
-                    </a>
-
-                </div>
+    </section>
 
 
-                <div class="language-card">
+    <!-- EDUCATION -->
+    <section id="education" class="section reveal">
 
-                    <div class="card-icon">🎨</div>
+        <p class="label">02 — EDUCATION</p>
+        
 
-                    <h3>CSS</h3>
+        <h2>Education</h2>
 
-                    <p>
-                        Learn styling, layouts and responsive design.
-                    </p>
+        <div class="education-grid">
 
-                    <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                        target="_blank"
-                    >
-                        Learn CSS →
-                    </a>
+            <div class="education-card">
 
-                </div>
+                <div class="DON BOSCO college Dharmapuri ">🎓</div>
 
+                <h3>BCA — First Year stundent</h3>
 
-                <div class="language-card">
+                <h4>Dharmapuri</h4>
 
-                    <div class="card-icon">⚡</div>
-
-                    <h3>JavaScript</h3>
-
-                    <p>
-                        Make websites interactive with JavaScript.
-                    </p>
-
-                    <a
-                        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                        target="_blank"
-                    >
-                        Learn JavaScript →
-                    </a>
-
-                </div>
-
-
-                <div class="language-card">
-
-                    <div class="card-icon">🐍</div>
-
-                    <h3>Python</h3>
-
-                    <p>
-                        Learn Python programming from the basics.
-                    </p>
-
-                    <a
-                        href="https://www.python.org/about/gettingstarted/"
-                        target="_blank"
-                    >
-                        Learn Python →
-                    </a>
-
-                </div>
-
-
-                <div class="language-card">
-
-                    <div class="card-icon">☕</div>
-
-                    <h3>Java</h3>
-
-                    <p>
-                        Learn Java and object-oriented programming.
-                    </p>
-
-                    <a
-                        href="https://dev.java/learn/"
-                        target="_blank"
-                    >
-                        Learn Java →
-                    </a>
-
-                </div>
-
-
-                <div class="language-card">
-
-                    <div class="card-icon">🤖</div>
-
-                    <h3>Artificial Intelligence</h3>
-
-                    <p>
-                        Explore AI concepts and modern technology.
-                    </p>
-
-                    <a
-                        href="https://www.ibm.com/think/topics/artificial-intelligence"
-                        target="_blank"
-                    >
-                        Learn AI →
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- RESOURCES -->
-
-        <section id="resources">
-
-            <div class="section-heading">
-
-                <p>EXPLORE</p>
-
-                <h2>🌐 Learning Resources</h2>
+                <p>
+                    Currently pursuing Bachelor of Computer
+                    Applications and learning programming,
+                    computer fundamentals and web technologies.
+                </p>
 
             </div>
 
 
-            <div class="resource-grid">
+            <div class="education-card">
 
-                <div class="resource-card">
+                <div class="education-icon">💻</div>
 
-                    <h3>🚀 freeCodeCamp</h3>
+                <h3>HDCA — Completed</h3>
 
-                    <p>
-                        Interactive coding lessons and projects.
-                    </p>
+                <h4>CSC computer software college Dharmapuri</h4>
 
-                    <a
-                        href="https://www.freecodecamp.org/"
-                        target="_blank"
-                    >
-                        Visit Website →
-                    </a>
+                <p>
+                    Completed HDCA and gained knowledge in
+                    computer applications and software skills.
+                </p>
 
-                </div>
-
-
-                <div class="resource-card">
-
-                    <h3>📘 MDN Web Docs</h3>
-
-                    <p>
-                        Detailed web development documentation.
-                    </p>
-
-                    <a
-                        href="https://developer.mozilla.org/"
-                        target="_blank"
-                    >
-                        Visit Website →
-                    </a>
-
-                </div>
-
-
-                <div class="resource-card">
-
-                    <h3>💡 W3Schools</h3>
-
-                    <p>
-                        Beginner-friendly coding tutorials.
-                    </p>
-
-                    <a
-                        href="https://www.w3schools.com/"
-                        target="_blank"
-                    >
-                        Visit Website →
-                    </a>
-
-                </div>
-
-
-                <div class="resource-card">
-
-                    <h3>💻 Codecademy</h3>
-
-                    <p>
-                        Interactive programming courses.
-                    </p>
-
-                    <a
-                        href="https://www.codecademy.com/"
-                        target="_blank"
-                    >
-                        Visit Website →
-                    </a>
-
-                </div>
+                <a
+                    href="#certificates"
+                    class="education-button"
+                >
+                    View Certificate
+                </a>
 
             </div>
 
-        </section>
+        </div>
 
-    </main>
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills" class="section reveal">
+
+        <p class="label">03 — SKILLS</p>
+
+        <h2>Skills</h2>
+
+        <div class="skills-grid">
+
+            <div class="glass-card">
+                <h3>HTML</h3>
+                <p>Web page structure and development.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>CSS</h3>
+                <p>Creative UI and responsive design.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>JavaScript</h3>
+                <p>Interactive web development.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>C / C++</h3>
+                <p>Programming fundamentals.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>Python</h3>
+                <p>Programming and AI learning.</p>
+            </div>
+
+            <div class="glass-card">
+                <h3>AI</h3>
+                <p>Exploring Artificial Intelligence.</p>
+            </div>
+    
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section reveal">
+
+        <p class="label">04 — PROJECTS</p>
+
+        <h2>My Projects</h2>
+
+        <div class="projects-grid">
+
+            <!-- Kuil Game -->
+            <div class="project-card">
+
+                <h3>🎮 Kuil2game</h3>
+
+                <p>
+                    A creative browser-based game project.
+                </p>
+
+                <a
+                    href="kuil2game.html"
+                    class="certificate-button"
+                >
+                    Open Game
+                </a>
+
+            </div>
+
+
+            <!-- Makeup -->
+            <div class="project-card">
+
+                <h3>💄 Mackup Game</h3>
+
+                <p>
+                    A fun interactive makeup-themed web project.
+                </p>
+
+                <a
+                    href="mackup.html"
+                    class="certificate-button"
+                >
+                    Open Game
+                </a>
+
+            </div>
+
+
+            <!-- Calculator -->
+            <div class="project-card">
+
+                <h3>🧮 Calculator</h3>
+
+                <p>
+                    A simple interactive calculator project.
+                </p>
+
+                <a
+                    href="calc.html"
+                    class="certificate-button"
+                >
+                    Open Calculator
+                </a>
+
+            </div>
+
+
+            <!-- AI Project -->
+            <!-- 3rd project -->
+<a href="ai-game.html" class="project-card">
+    <h3>🐱 AI bhakshi</h3>
+<p>💬 friendly conversation</p>
+</a>
+</a>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="section reveal">
+
+        <p class="label">05 — CERTIFICATES</p>
+
+        <h2>My Certificates</h2>
+
+        <div class="projects-grid">
+
+            <!-- Certificate 1 -->
+            <div class="certificate-card">
+
+                <h3>Certificate 01</h3>
+
+                <p>
+                    Computer Software Course Certificate
+                </p>
+
+                <a
+                    href="csc1.jpg"
+                    target="_blank"
+                    class="certificate-button"
+                >
+                    View Certificate
+                </a>
+
+            </div>
+
+
+            <!-- Certificate 2 -->
+            <div class="certificate-card">
+
+                <h3>Certificate 02</h3>
+
+                <p>
+                    Computer Software Course Certificate
+                </p>
+
+                <a
+                    href="csc2.jpg"
+                    target="_blank"
+                    class="certificate-button"
+                >
+                    View Certificate
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section reveal">
+
+        <p class="label">06 — CONTACT</p>
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-grid">
+
+            <a
+                href="tel:919360784058"
+                class="contact-box"
+            >
+                <h3>📞 Phone</h3>
+                <p>919360784058</p>
+            </a>
+
+
+            <a
+                href="mailto:bavyas2009@gmail.com"
+                class="contact-box"
+            >
+                <h3>📧 Email</h3>
+                <p>bavyas2009@gmail.com</p>
+            </a>
+
+
+            <a
+                href="https://github.com/bavyasri-code07"
+                target="_blank"
+                class="contact-box"
+            >
+                <h3>💻 GitHub</h3>
+                <p>bavyasri-code07</p>
+            </a>
+
+        </div>
+
+    </section>
 
 
     <!-- FOOTER -->
-
     <footer>
 
-        <h3>📚 BCA Learning Hub</h3>
+        <p>© 2026 Bavya Sri</p>
 
         <p>
-            Learn • Practice • Build • Grow
-        </p>
-
-        <p class="copyright">
-            © 2026 BCA Learning Hub
+            Keep Learning • Keep Creating • Keep Growing ✨
         </p>
 
     </footer>
@@ -344,6 +391,7 @@
 
     <!-- JavaScript -->
     <script src="script.js"></script>
+    
 
 </body>
 </html>
