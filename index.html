@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Bavya Sri | Portfolio</title>
 
 <style>
@@ -20,8 +21,7 @@ body{
     overflow-x:hidden;
 }
 
-/* ===== ANIMATED BLUE STARS ===== */
-
+/* BLUE GLOWING STARS */
 body::before{
     content:"";
     position:fixed;
@@ -56,8 +56,7 @@ body::after{
     100%{opacity:.4}
 }
 
-/* ===== NAVBAR ===== */
-
+/* NAVBAR */
 nav{
     position:fixed;
     top:0;
@@ -99,8 +98,7 @@ nav a:hover{
     color:#42a5ff;
 }
 
-/* ===== COMMON ===== */
-
+/* COMMON */
 section{
     width:100%;
     max-width:1150px;
@@ -133,8 +131,7 @@ section{
     box-shadow:0 10px 40px rgba(0,0,0,.25);
 }
 
-/* ===== HOME ===== */
-
+/* HOME */
 #home{
     min-height:100vh;
     display:flex;
@@ -208,16 +205,14 @@ section{
     box-shadow:0 0 25px rgba(66,165,255,.5);
 }
 
-/* ===== ABOUT ===== */
-
+/* ABOUT */
 .about-text{
     text-align:center;
     color:#ccc;
     line-height:1.9;
 }
 
-/* ===== EDUCATION ===== */
-
+/* EDUCATION */
 .education-card h3{
     color:#42a5ff;
     margin-bottom:12px;
@@ -228,8 +223,7 @@ section{
     line-height:1.8;
 }
 
-/* ===== SKILLS ===== */
-
+/* SKILLS */
 .skills{
     display:flex;
     justify-content:center;
@@ -251,8 +245,7 @@ section{
     background:rgba(30,130,255,.2);
 }
 
-/* ===== PROJECTS ===== */
-
+/* PROJECTS */
 .projects{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -286,8 +279,7 @@ section{
     font-size:14px;
 }
 
-/* ===== CURRENT WORK ===== */
-
+/* CURRENT WORK */
 .work-card{
     text-align:center;
 }
@@ -327,8 +319,7 @@ section{
     box-shadow:0 0 30px rgba(22,140,255,.6);
 }
 
-/* ===== CERTIFICATES ===== */
-
+/* CERTIFICATES */
 .certificates{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -348,8 +339,7 @@ section{
     color:#bbb;
 }
 
-/* ===== CONTACT ===== */
-
+/* CONTACT */
 .contact-card{
     text-align:center;
 }
@@ -359,11 +349,24 @@ section{
     line-height:1.7;
 }
 
-.contact-number{
-    margin:20px 0;
-    font-size:21px;
+.contact-number,
+.contact-email{
+    margin:15px 0;
+}
+
+.contact-number a,
+.contact-email a{
     color:#42a5ff;
+    text-decoration:none;
     font-weight:bold;
+}
+
+.contact-number a{
+    font-size:21px;
+}
+
+.contact-email a{
+    font-size:17px;
 }
 
 .social-links{
@@ -371,6 +374,7 @@ section{
     justify-content:center;
     flex-wrap:wrap;
     gap:12px;
+    margin-top:25px;
 }
 
 .social-links a{
@@ -386,8 +390,7 @@ section{
     background:#168cff;
 }
 
-/* ===== FOOTER ===== */
-
+/* FOOTER */
 footer{
     text-align:center;
     padding:30px;
@@ -395,8 +398,7 @@ footer{
     border-top:1px solid rgba(70,160,255,.12);
 }
 
-/* ===== MOBILE ===== */
-
+/* MOBILE */
 @media(max-width:768px){
 
     nav{
@@ -442,8 +444,7 @@ footer{
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
+<!-- NAVBAR -->
 <nav>
     <div class="logo">Bavya<span>Sri</span></div>
 
@@ -460,8 +461,7 @@ footer{
 </nav>
 
 
-<!-- ================= HOME ================= -->
-
+<!-- HOME -->
 <section id="home">
 
     <div class="hero">
@@ -493,6 +493,7 @@ footer{
 
             <a href="https://github.com/bavyasri-code07"
                target="_blank"
+               rel="noopener noreferrer"
                class="btn">
                 GitHub
             </a>
@@ -504,8 +505,7 @@ footer{
 </section>
 
 
-<!-- ================= 01 ABOUT ================= -->
-
+<!-- 01 ABOUT -->
 <section id="about">
 
     <div class="section-title">
@@ -526,8 +526,7 @@ footer{
 </section>
 
 
-<!-- ================= 02 EDUCATION ================= -->
-
+<!-- 02 EDUCATION -->
 <section id="education">
 
     <div class="section-title">
@@ -540,9 +539,7 @@ footer{
         <h3>Bachelor of Computer Applications (BCA)</h3>
 
         <p>First Year Student</p>
-
         <p>Don Bosco College</p>
-
         <p>2026 – Present</p>
 
     </div>
@@ -550,8 +547,7 @@ footer{
 </section>
 
 
-<!-- ================= 03 SKILLS ================= -->
-
+<!-- 03 SKILLS -->
 <section id="skills">
 
     <div class="section-title">
@@ -575,8 +571,7 @@ footer{
 </section>
 
 
-<!-- ================= 04 PROJECTS ================= -->
-
+<!-- 04 PROJECTS -->
 <section id="projects">
 
     <div class="section-title">
@@ -585,8 +580,6 @@ footer{
     </div>
 
     <div class="projects">
-
-        <!-- ADD YOUR EXISTING PROJECT DETAILS HERE -->
 
         <div class="card project-card">
 
@@ -629,7 +622,6 @@ footer{
                 my web development practice.
             </p>
 
-            <!-- YOUR EXISTING GAME LINK -->
             <a href="#" class="project-link">
                 Play Game →
             </a>
@@ -642,12 +634,12 @@ footer{
             <h3>More Projects</h3>
 
             <p>
-                More of my coding and web development projects will
-                be added here.
+                More of my coding and web development projects.
             </p>
 
             <a href="https://github.com/bavyasri-code07"
                target="_blank"
+               rel="noopener noreferrer"
                class="project-link">
                 View GitHub →
             </a>
@@ -659,8 +651,7 @@ footer{
 </section>
 
 
-<!-- ================= 05 CURRENT WORK ================= -->
-
+<!-- 05 CURRENT WORK -->
 <section id="current-work">
 
     <div class="section-title">
@@ -693,6 +684,7 @@ footer{
 
         <a href="https://www.instagram.com/little.Wish.digital/"
            target="_blank"
+           rel="noopener noreferrer"
            class="work-button">
             Visit Little Wish Digital →
         </a>
@@ -702,8 +694,7 @@ footer{
 </section>
 
 
-<!-- ================= 06 CERTIFICATES ================= -->
-
+<!-- 06 CERTIFICATES -->
 <section id="certificates">
 
     <div class="section-title">
@@ -739,8 +730,7 @@ footer{
 </section>
 
 
-<!-- ================= 07 CONTACT ================= -->
-
+<!-- 07 CONTACT -->
 <section id="contact">
 
     <div class="section-title">
@@ -755,22 +745,29 @@ footer{
             creative work or collaborations.
         </p>
 
-        <!-- CONTACT NUMBER WILL BE ADDED HERE -->
-
         <div class="contact-number">
-            YOUR CONTACT NUMBER
+            <a href="tel:9360784058">
+                📞 9360784058
+            </a>
         </div>
 
+        <div class="contact-email">
+            <a href="mailto:bavyas2009@gmail.com">
+                ✉️ bavyas2009@gmail.com
+            </a>
+        </div>
 
         <div class="social-links">
 
             <a href="https://github.com/bavyasri-code07"
-               target="_blank">
+               target="_blank"
+               rel="noopener noreferrer">
                 GitHub
             </a>
 
             <a href="https://www.instagram.com/little.Wish.digital/"
-               target="_blank">
+               target="_blank"
+               rel="noopener noreferrer">
                 Little Wish Digital
             </a>
 
@@ -781,12 +778,9 @@ footer{
 </section>
 
 
-<!-- ================= FOOTER ================= -->
-
+<!-- FOOTER -->
 <footer>
-
     © 2026 Bavya Sri • Portfolio
-
 </footer>
 
 </body>
