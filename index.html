@@ -1,787 +1,1054 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Bavya Sri | Portfolio</title>
+    <title>Bavya Sri | BCA Student & Digital Creator</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
+    <meta name="description"
+        content="Bavya Sri - BCA First Year Student interested in programming, web development, artificial intelligence and creative digital projects.">
 
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#020611;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-/* BLUE GLOWING STARS */
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-2;
-    pointer-events:none;
-    background:
-    radial-gradient(circle at 10% 20%,#168cff 0 1px,transparent 2px),
-    radial-gradient(circle at 25% 70%,#42a5ff 0 1px,transparent 2px),
-    radial-gradient(circle at 45% 30%,#168cff 0 1px,transparent 2px),
-    radial-gradient(circle at 65% 80%,#42a5ff 0 1px,transparent 2px),
-    radial-gradient(circle at 80% 20%,#168cff 0 1px,transparent 2px),
-    radial-gradient(circle at 92% 65%,#42a5ff 0 1px,transparent 2px);
-    background-size:180px 180px;
-    animation:stars 4s ease-in-out infinite alternate;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    inset:0;
-    z-index:-3;
-    pointer-events:none;
-    background:
-    radial-gradient(circle at 20% 40%,rgba(0,130,255,.18),transparent 20%),
-    radial-gradient(circle at 80% 60%,rgba(0,100,255,.15),transparent 25%);
-}
-
-@keyframes stars{
-    0%{opacity:.25}
-    50%{opacity:.9}
-    100%{opacity:.4}
-}
-
-/* NAVBAR */
-nav{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:999;
-    padding:17px 7%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    background:rgba(2,6,17,.78);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(70,160,255,.15);
-}
-
-.logo{
-    font-size:22px;
-    font-weight:700;
-}
-
-.logo span{
-    color:#42a5ff;
-}
-
-nav ul{
-    display:flex;
-    gap:20px;
-    list-style:none;
-}
-
-nav a{
-    color:#ddd;
-    text-decoration:none;
-    font-size:13px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#42a5ff;
-}
-
-/* COMMON */
-section{
-    width:100%;
-    max-width:1150px;
-    margin:auto;
-    padding:100px 7%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:35px;
-}
-
-.section-title span{
-    color:#42a5ff;
-    font-size:12px;
-    letter-spacing:2px;
-}
-
-.section-title h2{
-    font-size:34px;
-    margin-top:8px;
-}
-
-.card{
-    background:rgba(8,18,35,.68);
-    border:1px solid rgba(70,160,255,.2);
-    border-radius:22px;
-    padding:28px;
-    backdrop-filter:blur(15px);
-    box-shadow:0 10px 40px rgba(0,0,0,.25);
-}
-
-/* HOME */
-#home{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding-top:130px;
-}
-
-.hero{
-    max-width:760px;
-}
-
-.profile-photo{
-    width:145px;
-    height:145px;
-    object-fit:cover;
-    border-radius:50%;
-    border:3px solid #42a5ff;
-    box-shadow:
-    0 0 18px rgba(66,165,255,.7),
-    0 0 50px rgba(66,165,255,.25);
-    margin-bottom:25px;
-}
-
-.hero h1{
-    font-size:55px;
-    margin-bottom:12px;
-}
-
-.hero h1 span{
-    color:#42a5ff;
-}
-
-.hero h3{
-    color:#aaa;
-    font-size:19px;
-    margin-bottom:20px;
-}
-
-.hero p{
-    color:#bbb;
-    line-height:1.8;
-    margin-bottom:27px;
-}
-
-.buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    display:inline-block;
-    padding:12px 22px;
-    border:1px solid #42a5ff;
-    border-radius:30px;
-    color:white;
-    text-decoration:none;
-    transition:.3s;
-}
-
-.btn.primary{
-    background:#168cff;
-    box-shadow:0 0 20px rgba(22,140,255,.3);
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 25px rgba(66,165,255,.5);
-}
-
-/* ABOUT */
-.about-text{
-    text-align:center;
-    color:#ccc;
-    line-height:1.9;
-}
-
-/* EDUCATION */
-.education-card h3{
-    color:#42a5ff;
-    margin-bottom:12px;
-}
-
-.education-card p{
-    color:#bbb;
-    line-height:1.8;
-}
-
-/* SKILLS */
-.skills{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:13px;
-}
-
-.skill{
-    padding:11px 19px;
-    border:1px solid rgba(66,165,255,.3);
-    background:rgba(30,110,200,.12);
-    border-radius:30px;
-    color:#ddd;
-    transition:.3s;
-}
-
-.skill:hover{
-    transform:translateY(-3px);
-    background:rgba(30,130,255,.2);
-}
-
-/* PROJECTS */
-.projects{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.project-card{
-    transition:.3s;
-}
-
-.project-card:hover{
-    transform:translateY(-5px);
-    border-color:rgba(66,165,255,.5);
-}
-
-.project-card h3{
-    color:#42a5ff;
-    margin-bottom:12px;
-}
-
-.project-card p{
-    color:#bbb;
-    line-height:1.7;
-    margin-bottom:18px;
-}
-
-.project-link{
-    display:inline-block;
-    color:#42a5ff;
-    text-decoration:none;
-    font-size:14px;
-}
-
-/* CURRENT WORK */
-.work-card{
-    text-align:center;
-}
-
-.work-card h3{
-    color:#42a5ff;
-    font-size:25px;
-    margin-bottom:10px;
-}
-
-.work-role{
-    color:#42a5ff !important;
-    font-weight:bold;
-    margin-bottom:18px;
-}
-
-.work-card p{
-    color:#bbb;
-    line-height:1.8;
-    margin-bottom:10px;
-}
-
-.work-button{
-    display:inline-block;
-    margin-top:20px;
-    padding:13px 25px;
-    background:#168cff;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    box-shadow:0 0 20px rgba(22,140,255,.35);
-    transition:.3s;
-}
-
-.work-button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 30px rgba(22,140,255,.6);
-}
-
-/* CERTIFICATES */
-.certificates{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.certificate{
-    text-align:center;
-}
-
-.certificate h3{
-    color:#42a5ff;
-    margin-bottom:10px;
-}
-
-.certificate p{
-    color:#bbb;
-}
-
-/* CONTACT */
-.contact-card{
-    text-align:center;
-}
-
-.contact-card p{
-    color:#bbb;
-    line-height:1.7;
-}
-
-.contact-number,
-.contact-email{
-    margin:15px 0;
-}
-
-.contact-number a,
-.contact-email a{
-    color:#42a5ff;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-.contact-number a{
-    font-size:21px;
-}
-
-.contact-email a{
-    font-size:17px;
-}
-
-.social-links{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:25px;
-}
-
-.social-links a{
-    color:#fff;
-    text-decoration:none;
-    padding:11px 20px;
-    border:1px solid rgba(66,165,255,.4);
-    border-radius:25px;
-    transition:.3s;
-}
-
-.social-links a:hover{
-    background:#168cff;
-}
-
-/* FOOTER */
-footer{
-    text-align:center;
-    padding:30px;
-    color:#777;
-    border-top:1px solid rgba(70,160,255,.12);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-    nav{
-        padding:15px 5%;
-    }
-
-    nav ul{
-        display:none;
-    }
-
-    section{
-        padding:85px 5%;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero h3{
-        font-size:16px;
-    }
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-    .projects,
-    .certificates{
-        grid-template-columns:1fr;
-    }
-
-    .card{
-        padding:22px;
-    }
-
-    .profile-photo{
-        width:125px;
-        height:125px;
-    }
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav>
-    <div class="logo">Bavya<span>Sri</span></div>
+    <!-- =====================================================
+         ANIMATED BACKGROUND
+    ====================================================== -->
 
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#current-work">Current Work</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <div class="background">
+        <div class="stars"></div>
+        <div class="stars stars-two"></div>
 
+        <div class="blue-glow glow-one"></div>
+        <div class="blue-glow glow-two"></div>
 
-<!-- HOME -->
-<section id="home">
-
-    <div class="hero">
-
-        <img src="amma.jpg"
-             alt="Bavya Sri"
-             class="profile-photo">
-
-        <h1>Hi, I'm <span>Bavya Sri</span></h1>
-
-        <h3>
-            BCA Student • Web Developer • Digital Creator
-        </h3>
-
-        <p>
-            First-year BCA student at Don Bosco College,
-            interested in coding, web development and digital creativity.
-        </p>
-
-        <div class="buttons">
-
-            <a href="#projects" class="btn primary">
-                View My Projects
-            </a>
-
-            <a href="#contact" class="btn">
-                Contact Me
-            </a>
-
-            <a href="https://github.com/bavyasri-code07"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn">
-                GitHub
-            </a>
-
-        </div>
-
+        <div class="background-grid"></div>
     </div>
 
-</section>
 
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
 
-<!-- 01 ABOUT -->
-<section id="about">
+    <header class="navbar">
 
-    <div class="section-title">
-        <span>01 — ABOUT ME</span>
-        <h2>About Me</h2>
-    </div>
-
-    <div class="card about-text">
-
-        <p>
-            I'm Bavya Sri, a first-year BCA student at Don Bosco College.
-            I enjoy coding, learning new technologies, creating websites
-            and exploring digital creativity.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- 02 EDUCATION -->
-<section id="education">
-
-    <div class="section-title">
-        <span>02 — EDUCATION</span>
-        <h2>Education</h2>
-    </div>
-
-    <div class="card education-card">
-
-        <h3>Bachelor of Computer Applications (BCA)</h3>
-
-        <p>First Year Student</p>
-        <p>Don Bosco College</p>
-        <p>2026 – Present</p>
-
-    </div>
-
-</section>
-
-
-<!-- 03 SKILLS -->
-<section id="skills">
-
-    <div class="section-title">
-        <span>03 — SKILLS</span>
-        <h2>Skills</h2>
-    </div>
-
-    <div class="skills">
-
-        <div class="skill">C</div>
-        <div class="skill">C++</div>
-        <div class="skill">Python</div>
-        <div class="skill">HTML</div>
-        <div class="skill">CSS</div>
-        <div class="skill">JavaScript</div>
-        <div class="skill">SQL</div>
-        <div class="skill">GitHub</div>
-
-    </div>
-
-</section>
-
-
-<!-- 04 PROJECTS -->
-<section id="projects">
-
-    <div class="section-title">
-        <span>04 — PROJECTS</span>
-        <h2>My Projects</h2>
-    </div>
-
-    <div class="projects">
-
-        <div class="card project-card">
-
-            <h3>Personal Portfolio Website</h3>
-
-            <p>
-                My personal portfolio website showcasing my education,
-                skills, projects and digital creative work.
-            </p>
-
-            <a href="#home" class="project-link">
-                View Project →
-            </a>
-
-        </div>
-
-
-        <div class="card project-card">
-
-            <h3>Creative Web Projects</h3>
-
-            <p>
-                Interactive websites and digital experiences created
-                using HTML, CSS and JavaScript.
-            </p>
-
-            <a href="#current-work" class="project-link">
-                View Work →
-            </a>
-
-        </div>
-
-
-        <div class="card project-card">
-
-            <h3>Game Project</h3>
-
-            <p>
-                Interactive browser game project created as part of
-                my web development practice.
-            </p>
-
-            <a href="#" class="project-link">
-                Play Game →
-            </a>
-
-        </div>
-
-
-        <div class="card project-card">
-
-            <h3>More Projects</h3>
-
-            <p>
-                More of my coding and web development projects.
-            </p>
-
-            <a href="https://github.com/bavyasri-code07"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="project-link">
-                View GitHub →
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- 05 CURRENT WORK -->
-<section id="current-work">
-
-    <div class="section-title">
-        <span>05 — CURRENT WORK</span>
-        <h2>Little Wish Digital</h2>
-    </div>
-
-    <div class="card work-card">
-
-        <h3>Little Wish Digital</h3>
-
-        <p class="work-role">
-            Founder & Digital Creator · 2026 – Present
-        </p>
-
-        <p>
-            I am currently running my own digital creative business
-            alongside my BCA studies.
-        </p>
-
-        <p>
-            I create personalized websites, digital invitations,
-            memory websites and creative digital content for clients.
-        </p>
-
-        <p>
-            I manage client requirements and create customized
-            digital experiences from concept to delivery.
-        </p>
-
-        <a href="https://www.instagram.com/little.Wish.digital/"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="work-button">
-            Visit Little Wish Digital →
+        <a href="#home" class="logo">
+            <span>B</span>
+            Bavya Sri
         </a>
 
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#education">Education</a>
+
+            <a href="#skills">Skills</a>
+
+            <a href="#projects">Projects</a>
+
+            <a href="#current-work">Current Work</a>
+
+            <a href="#certificates">Certificates</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MOBILE MENU
+    ====================================================== -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#current-work">Current Work</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+
     </div>
 
-</section>
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main>
 
 
-<!-- 06 CERTIFICATES -->
-<section id="certificates">
+        <!-- =================================================
+             HOME
+        ================================================== -->
 
-    <div class="section-title">
-        <span>06 — CERTIFICATES</span>
-        <h2>Certificates & Achievements</h2>
-    </div>
+        <section id="home" class="hero">
 
-    <div class="certificates">
+            <div class="hero-content">
 
-        <div class="card certificate">
-
-            <h3>Certificate 01</h3>
-
-            <p>
-                Add your certificate details here.
-            </p>
-
-        </div>
+                <div class="welcome-badge">
+                    <span></span>
+                    Welcome to My Portfolio
+                </div>
 
 
-        <div class="card certificate">
+                <!-- ROUND PROFILE PHOTO -->
 
-            <h3>Certificate 02</h3>
+                <div class="profile-container">
 
-            <p>
-                Add your certificate details here.
-            </p>
+                    <div class="profile-orbit"></div>
 
-        </div>
+                    <div class="profile-frame">
 
-    </div>
+                        <img
+                            src="amma.jpg"
+                            alt="Bavya Sri"
+                            class="profile-photo"
+                        >
 
-</section>
+                    </div>
+
+                </div>
 
 
-<!-- 07 CONTACT -->
-<section id="contact">
+                <p class="hero-small">
+                    BCA FIRST YEAR STUDENT
+                </p>
 
-    <div class="section-title">
-        <span>07 — CONTACT</span>
-        <h2>Contact Me</h2>
-    </div>
 
-    <div class="card contact-card">
+                <h1>
+                    Bavya <span>Sri</span>
+                </h1>
+
+
+                <h2>
+                    BCA First Year Student
+                </h2>
+
+
+                <p class="hero-description">
+
+                    Learning Computer Science, Programming,
+                    Web Development and Artificial Intelligence.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="#about" class="primary-btn">
+                        Explore My Portfolio
+                    </a>
+
+                    <a href="#contact" class="secondary-btn">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <section id="about" class="section">
+
+            <div class="section-heading">
+
+                <span>01 — ABOUT</span>
+
+                <h2>About Me</h2>
+
+            </div>
+
+
+            <div class="glass-card about-card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Hi, I am Bavya Sri.
+                </h3>
+
+                <p>
+
+                    I am a BCA first year student at
+                    Ananda School & College, Dharmapuri,
+                    who is interested in computer programming,
+                    web development and artificial intelligence.
+
+                </p>
+
+                <p>
+
+                    I enjoy learning AI, exploring new technologies
+                    and creating creative projects while improving
+                    my technological skills step by step.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EDUCATION
+        ================================================== -->
+
+        <section id="education" class="section">
+
+            <div class="section-heading">
+
+                <span>02 — EDUCATION</span>
+
+                <h2>Education</h2>
+
+            </div>
+
+
+            <div class="education-grid">
+
+
+                <!-- BCA -->
+
+                <div class="glass-card education-card">
+
+                    <div class="education-icon">
+                        🎓
+                    </div>
+
+                    <div>
+
+                        <span class="education-label">
+                            CURRENTLY STUDYING
+                        </span>
+
+                        <h3>
+                            BCA — First Year
+                        </h3>
+
+                        <h4>
+                            Dharmapuri
+                        </h4>
+
+                        <p>
+
+                            Currently pursuing Bachelor of
+                            Computer Applications and learning
+                            programming, computer fundamentals
+                            and web technology.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COMPUTER COURSE -->
+
+                <div class="glass-card education-card">
+
+                    <div class="education-icon">
+                        💻
+                    </div>
+
+                    <div>
+
+                        <span class="education-label">
+                            COMPLETED
+                        </span>
+
+                        <h3>
+                            Computer Application & Software Skills
+                        </h3>
+
+                        <h4>
+                            BSC Computer Software College,
+                            Dharmapuri
+                        </h4>
+
+                        <p>
+
+                            Completed computer application training
+                            and gained knowledge in computer
+                            applications and software skills.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SKILLS
+        ================================================== -->
+
+        <section id="skills" class="section">
+
+            <div class="section-heading">
+
+                <span>03 — SKILLS</span>
+
+                <h2>My Skills</h2>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <!-- HTML -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        HTML
+                    </div>
+
+                    <h3>HTML</h3>
+
+                    <p>
+                        Web page structure and development
+                    </p>
+
+                </div>
+
+
+                <!-- CSS -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        CSS
+                    </div>
+
+                    <h3>CSS</h3>
+
+                    <p>
+                        Creative UI and responsive design
+                    </p>
+
+                </div>
+
+
+                <!-- JAVASCRIPT -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        JS
+                    </div>
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        Interactive web experiences
+                    </p>
+
+                </div>
+
+
+                <!-- C -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        C
+                    </div>
+
+                    <h3>C</h3>
+
+                    <p>
+                        Programming fundamentals
+                    </p>
+
+                </div>
+
+
+                <!-- C++ -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        C++
+                    </div>
+
+                    <h3>C++</h3>
+
+                    <p>
+                        Programming and problem solving
+                    </p>
+
+                </div>
+
+
+                <!-- PYTHON -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        PY
+                    </div>
+
+                    <h3>Python</h3>
+
+                    <p>
+                        Programming and learning projects
+                    </p>
+
+                </div>
+
+
+                <!-- AI -->
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        AI
+                    </div>
+
+                    <h3>Artificial Intelligence</h3>
+
+                    <p>
+                        AI learning and exploring new technologies
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECTS
+        ================================================== -->
+
+        <section id="projects" class="section">
+
+            <div class="section-heading">
+
+                <span>04 — PROJECTS</span>
+
+                <h2>My Projects</h2>
+
+                <p>
+                    Creative web projects and interactive applications
+                    I have built while learning.
+                </p>
+
+            </div>
+
+
+            <div class="projects-list">
+
+
+                <!-- PROJECT 01 -->
+
+                <div class="project-card">
+
+                    <div class="project-left">
+
+                        <span class="project-number">
+                            01
+                        </span>
+
+                        <div>
+
+                            <span class="project-type">
+                                WEB GAME
+                            </span>
+
+                            <h3>
+                                Kuil 2 Game
+                            </h3>
+
+                            <p>
+                                An interactive browser-based game
+                                project created using web technologies.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="kuil2game.html"
+                        class="project-button"
+                    >
+                        Open Project →
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROJECT 02 -->
+
+                <div class="project-card">
+
+                    <div class="project-left">
+
+                        <span class="project-number">
+                            02
+                        </span>
+
+                        <div>
+
+                            <span class="project-type">
+                                CREATIVE GAME
+                            </span>
+
+                            <h3>
+                                Makeup Game
+                            </h3>
+
+                            <p>
+                                A creative interactive game project
+                                developed as a web experience.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="mackup.html"
+                        class="project-button"
+                    >
+                        Open Project →
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROJECT 03 -->
+
+                <div class="project-card">
+
+                    <div class="project-left">
+
+                        <span class="project-number">
+                            03
+                        </span>
+
+                        <div>
+
+                            <span class="project-type">
+                                WEB APPLICATION
+                            </span>
+
+                            <h3>
+                                Calculator
+                            </h3>
+
+                            <p>
+                                An interactive calculator created
+                                using HTML, CSS and JavaScript.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="calc.html"
+                        class="project-button"
+                    >
+                        Open Project →
+                    </a>
+
+                </div>
+
+
+
+                <!-- PROJECT 04 -->
+
+                <div class="project-card">
+
+                    <div class="project-left">
+
+                        <span class="project-number">
+                            04
+                        </span>
+
+                        <div>
+
+                            <span class="project-type">
+                                AI / WEB PROJECT
+                            </span>
+
+                            <h3>
+                                AI Game
+                            </h3>
+
+                            <p>
+                                An interactive AI-based creative
+                                web project.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="ai-game.html"
+                        class="project-button"
+                    >
+                        Open Project →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CURRENT WORK
+        ================================================== -->
+
+        <section id="current-work" class="section">
+
+            <div class="section-heading">
+
+                <span>05 — CURRENT WORK</span>
+
+                <h2>Little Wish Digital</h2>
+
+            </div>
+
+
+            <div class="current-work-card">
+
+
+                <div class="current-work-content">
+
+                    <div class="active-badge">
+
+                        <span></span>
+
+                        CURRENTLY ACTIVE
+
+                    </div>
+
+
+                    <span class="work-role">
+                        Founder & Digital Creator
+                    </span>
+
+
+                    <span class="work-year">
+                        2026 — Present
+                    </span>
+
+
+                    <h3>
+                        Little Wish Digital
+                    </h3>
+
+
+                    <p>
+
+                        I am currently running my own digital
+                        creativity business alongside my BCA studies.
+
+                    </p>
+
+
+                    <p>
+
+                        I create personalized websites, digital
+                        invitations, memory websites and creative
+                        digital content based on client requirements.
+
+                    </p>
+
+
+                    <div class="work-tags">
+
+                        <span>Personalized Websites</span>
+
+                        <span>Digital Invitations</span>
+
+                        <span>Memory Websites</span>
+
+                        <span>Digital Content</span>
+
+                    </div>
+
+
+                    <a
+                        href="https://www.instagram.com/little.Wish.digital/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="instagram-button"
+                    >
+                        Visit Little Wish Digital →
+                    </a>
+
+                </div>
+
+
+                <div class="work-visual">
+
+                    <div class="work-glow"></div>
+
+                    <div class="work-logo-card">
+
+                        <div class="lw-logo">
+                            LW
+                        </div>
+
+                        <h4>
+                            Little Wish Digital
+                        </h4>
+
+                        <p>
+                            Beautiful Memories,
+                            Beautifully Digital.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CERTIFICATES
+        ================================================== -->
+
+        <section id="certificates" class="section">
+
+            <div class="section-heading">
+
+                <span>06 — CERTIFICATES</span>
+
+                <h2>My Certificates</h2>
+
+                <p>
+                    Certificates from my computer learning journey.
+                </p>
+
+            </div>
+
+
+            <div class="certificate-grid">
+
+
+                <!-- HTCA -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-top">
+
+                        <span class="certificate-number">
+                            01
+                        </span>
+
+                        <span class="certificate-status">
+                            COMPLETED
+                        </span>
+
+                    </div>
+
+
+                    <div class="certificate-icon">
+                        💻
+                    </div>
+
+
+                    <h3>
+                        HTCA Certificate
+                    </h3>
+
+
+                    <p>
+
+                        Completed HTCA and gained knowledge
+                        in computer applications and software skills.
+
+                    </p>
+
+
+                    <a
+                        href="htca-certificate.pdf"
+                        target="_blank"
+                        class="certificate-button"
+                    >
+                        View Certificate →
+                    </a>
+
+                </div>
+
+
+
+                <!-- VIEW CERTIFICATE -->
+
+                <div class="certificate-card">
+
+                    <div class="certificate-top">
+
+                        <span class="certificate-number">
+                            02
+                        </span>
+
+                        <span class="certificate-status">
+                            CERTIFICATE
+                        </span>
+
+                    </div>
+
+
+                    <div class="certificate-icon">
+                        📜
+                    </div>
+
+
+                    <h3>
+                        VIEW Certificate
+                    </h3>
+
+
+                    <p>
+
+                        Certificate from my computer learning
+                        and development journey.
+
+                    </p>
+
+
+                    <a
+                        href="view-certificate.pdf"
+                        target="_blank"
+                        class="certificate-button"
+                    >
+                        View Certificate →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <section id="contact" class="section">
+
+            <div class="section-heading">
+
+                <span>07 — CONTACT</span>
+
+                <h2>Let's Connect</h2>
+
+                <p>
+                    Feel free to connect with me through the links below.
+                </p>
+
+            </div>
+
+
+            <div class="contact-card">
+
+
+                <!-- PHONE -->
+
+                <a
+                    href="tel:9360784058"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Phone
+                        </span>
+
+                        <strong>
+                            9360784058
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- EMAIL -->
+
+                <a
+                    href="mailto:bavyas2009@gmail.com"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Email
+                        </span>
+
+                        <strong>
+                            bavyas2009@gmail.com
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- GITHUB -->
+
+                <a
+                    href="https://github.com/bavyasri-code07"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        GH
+                    </div>
+
+                    <div>
+
+                        <span>
+                            GitHub
+                        </span>
+
+                        <strong>
+                            bavyasri-code07
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- INSTAGRAM -->
+
+                <a
+                    href="https://www.instagram.com/little.Wish.digital/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-item"
+                >
+
+                    <div class="contact-icon">
+                        IG
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Little Wish Digital
+                        </span>
+
+                        <strong>
+                            Instagram
+                        </strong>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="footer-line"></div>
 
         <p>
-            Feel free to connect with me for projects,
-            creative work or collaborations.
+            © 2026 Bavya Sri · BCA First Year Student
         </p>
 
-        <div class="contact-number">
-            <a href="tel:9360784058">
-                📞 9360784058
-            </a>
-        </div>
+        <p class="footer-small">
+            Learning • Creating • Growing
+        </p>
 
-        <div class="contact-email">
-            <a href="mailto:bavyas2009@gmail.com">
-                ✉️ bavyas2009@gmail.com
-            </a>
-        </div>
-
-        <div class="social-links">
-
-            <a href="https://github.com/bavyasri-code07"
-               target="_blank"
-               rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            <a href="https://www.instagram.com/little.Wish.digital/"
-               target="_blank"
-               rel="noopener noreferrer">
-                Little Wish Digital
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
+    </footer>
 
 
-<!-- FOOTER -->
-<footer>
-    © 2026 Bavya Sri • Portfolio
-</footer>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
 
 </body>
 </html>
