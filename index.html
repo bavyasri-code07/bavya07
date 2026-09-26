@@ -1,432 +1,793 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bavya Sri | Portfolio</title>
 
-    <title>Bavya Sri | Portfolio</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-    <link rel="stylesheet" href="style.css">
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#020611;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* ===== ANIMATED BLUE STARS ===== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 10% 20%,#168cff 0 1px,transparent 2px),
+    radial-gradient(circle at 25% 70%,#42a5ff 0 1px,transparent 2px),
+    radial-gradient(circle at 45% 30%,#168cff 0 1px,transparent 2px),
+    radial-gradient(circle at 65% 80%,#42a5ff 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 20%,#168cff 0 1px,transparent 2px),
+    radial-gradient(circle at 92% 65%,#42a5ff 0 1px,transparent 2px);
+    background-size:180px 180px;
+    animation:stars 4s ease-in-out infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 20% 40%,rgba(0,130,255,.18),transparent 20%),
+    radial-gradient(circle at 80% 60%,rgba(0,100,255,.15),transparent 25%);
+}
+
+@keyframes stars{
+    0%{opacity:.25}
+    50%{opacity:.9}
+    100%{opacity:.4}
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:999;
+    padding:17px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(2,6,17,.78);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(70,160,255,.15);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:700;
+}
+
+.logo span{
+    color:#42a5ff;
+}
+
+nav ul{
+    display:flex;
+    gap:20px;
+    list-style:none;
+}
+
+nav a{
+    color:#ddd;
+    text-decoration:none;
+    font-size:13px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#42a5ff;
+}
+
+/* ===== COMMON ===== */
+
+section{
+    width:100%;
+    max-width:1150px;
+    margin:auto;
+    padding:100px 7%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title span{
+    color:#42a5ff;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:34px;
+    margin-top:8px;
+}
+
+.card{
+    background:rgba(8,18,35,.68);
+    border:1px solid rgba(70,160,255,.2);
+    border-radius:22px;
+    padding:28px;
+    backdrop-filter:blur(15px);
+    box-shadow:0 10px 40px rgba(0,0,0,.25);
+}
+
+/* ===== HOME ===== */
+
+#home{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding-top:130px;
+}
+
+.hero{
+    max-width:760px;
+}
+
+.profile-photo{
+    width:145px;
+    height:145px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #42a5ff;
+    box-shadow:
+    0 0 18px rgba(66,165,255,.7),
+    0 0 50px rgba(66,165,255,.25);
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#42a5ff;
+}
+
+.hero h3{
+    color:#aaa;
+    font-size:19px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    color:#bbb;
+    line-height:1.8;
+    margin-bottom:27px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    border:1px solid #42a5ff;
+    border-radius:30px;
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn.primary{
+    background:#168cff;
+    box-shadow:0 0 20px rgba(22,140,255,.3);
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 25px rgba(66,165,255,.5);
+}
+
+/* ===== ABOUT ===== */
+
+.about-text{
+    text-align:center;
+    color:#ccc;
+    line-height:1.9;
+}
+
+/* ===== EDUCATION ===== */
+
+.education-card h3{
+    color:#42a5ff;
+    margin-bottom:12px;
+}
+
+.education-card p{
+    color:#bbb;
+    line-height:1.8;
+}
+
+/* ===== SKILLS ===== */
+
+.skills{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:13px;
+}
+
+.skill{
+    padding:11px 19px;
+    border:1px solid rgba(66,165,255,.3);
+    background:rgba(30,110,200,.12);
+    border-radius:30px;
+    color:#ddd;
+    transition:.3s;
+}
+
+.skill:hover{
+    transform:translateY(-3px);
+    background:rgba(30,130,255,.2);
+}
+
+/* ===== PROJECTS ===== */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.project-card{
+    transition:.3s;
+}
+
+.project-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(66,165,255,.5);
+}
+
+.project-card h3{
+    color:#42a5ff;
+    margin-bottom:12px;
+}
+
+.project-card p{
+    color:#bbb;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.project-link{
+    display:inline-block;
+    color:#42a5ff;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* ===== CURRENT WORK ===== */
+
+.work-card{
+    text-align:center;
+}
+
+.work-card h3{
+    color:#42a5ff;
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.work-role{
+    color:#42a5ff !important;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.work-card p{
+    color:#bbb;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+.work-button{
+    display:inline-block;
+    margin-top:20px;
+    padding:13px 25px;
+    background:#168cff;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    box-shadow:0 0 20px rgba(22,140,255,.35);
+    transition:.3s;
+}
+
+.work-button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 30px rgba(22,140,255,.6);
+}
+
+/* ===== CERTIFICATES ===== */
+
+.certificates{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.certificate{
+    text-align:center;
+}
+
+.certificate h3{
+    color:#42a5ff;
+    margin-bottom:10px;
+}
+
+.certificate p{
+    color:#bbb;
+}
+
+/* ===== CONTACT ===== */
+
+.contact-card{
+    text-align:center;
+}
+
+.contact-card p{
+    color:#bbb;
+    line-height:1.7;
+}
+
+.contact-number{
+    margin:20px 0;
+    font-size:21px;
+    color:#42a5ff;
+    font-weight:bold;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.social-links a{
+    color:#fff;
+    text-decoration:none;
+    padding:11px 20px;
+    border:1px solid rgba(66,165,255,.4);
+    border-radius:25px;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    background:#168cff;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#777;
+    border-top:1px solid rgba(70,160,255,.12);
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    nav ul{
+        display:none;
+    }
+
+    section{
+        padding:85px 5%;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero h3{
+        font-size:16px;
+    }
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+    .projects,
+    .certificates{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .profile-photo{
+        width:125px;
+        height:125px;
+    }
+}
+</style>
 </head>
-    <body>
-        <body>
 
-    <!-- இங்கே இந்த code -->
-    <div class="floating-shapes">
-        ...
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+    <div class="logo">Bavya<span>Sri</span></div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#current-work">Current Work</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="hero">
+
+        <img src="amma.jpg"
+             alt="Bavya Sri"
+             class="profile-photo">
+
+        <h1>Hi, I'm <span>Bavya Sri</span></h1>
+
+        <h3>
+            BCA Student • Web Developer • Digital Creator
+        </h3>
+
+        <p>
+            First-year BCA student at Don Bosco College,
+            interested in coding, web development and digital creativity.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#projects" class="btn primary">
+                View My Projects
+            </a>
+
+            <a href="#contact" class="btn">
+                Contact Me
+            </a>
+
+            <a href="https://github.com/bavyasri-code07"
+               target="_blank"
+               class="btn">
+                GitHub
+            </a>
+
+        </div>
+
     </div>
 
-    <!-- உன் existing portfolio code -->
-
-    <!-- Animated Background -->
-    <div id="stars"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Bavya Sri</div>
-
-        <div class="nav-links">
-            <a href="#home">home</a>
-            <a href="#About">About</a>
-            <a href="#Education">Education </a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#certificates">certificates</a>
-            <a href="#contact">contact</a>
-        </div>
-    </nav>
-            <div class="cursor-ring"></div>
-
-<script>
-const ring = document.querySelector(".cursor-ring");
-
-document.addEventListener("mousemove", (e) => {
-    ring.style.left = e.clientX + "px";
-    ring.style.top = e.clientY + "px";
-});
-</script>
+</section>
 
 
-    <!-- HOME -->
-    <section id="home" class="section hero">
+<!-- ================= 01 ABOUT ================= -->
 
-        <div class="hero-content">
+<section id="about">
 
-            <!-- Profile Photo -->
-            <img
-                src="amma.jpg"alt="Bavya sri"
-                class="profile-photo">
-
-            <p class="label">WELCOME TO MY PORTFOLIO</p>
-
-            <h1>Bavya Sri</h1>
-
-            <h3>BCA First Year Student</h3>
-
-            <p class="hero-text">
-                Learning Computer Science, Programming,
-                Web Development and Artificial Intelligence.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-
-        <p class="label">01 — ABOUT</p>
-
+    <div class="section-title">
+        <span>01 — ABOUT ME</span>
         <h2>About Me</h2>
+    </div>
 
-        <div class="glass-card">
+    <div class="card about-text">
 
-            <p>
-                Hi, I'm Bavya Sri. I am a BCA First Year student DON bosco college Dharmapuri,
-                who is interested in computers, programming,
-                web development and Artificial Intelligence.
-            </p>
+        <p>
+            I'm Bavya Sri, a first-year BCA student at Don Bosco College.
+            I enjoy coding, learning new technologies, creating websites
+            and exploring digital creativity.
+        </p>
 
-            <p>
-                I love learning new technologies and creating
-                creative projects while improving my technical
-                skills step by step.
-            </p>
+    </div>
 
-            <p>
-                <strong>Learning today, building tomorrow.</strong>
-            </p>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- EDUCATION -->
-    <section id="education" class="section reveal">
+<!-- ================= 02 EDUCATION ================= -->
 
-        <p class="label">02 — EDUCATION</p>
-        
+<section id="education">
 
+    <div class="section-title">
+        <span>02 — EDUCATION</span>
         <h2>Education</h2>
+    </div>
 
-        <div class="education-grid">
+    <div class="card education-card">
 
-            <div class="education-card">
+        <h3>Bachelor of Computer Applications (BCA)</h3>
 
-                <div class="DON BOSCO college Dharmapuri ">🎓</div>
+        <p>First Year Student</p>
 
-                <h3>BCA — First Year stundent</h3>
+        <p>Don Bosco College</p>
 
-                <h4>Dharmapuri</h4>
+        <p>2026 – Present</p>
 
-                <p>
-                    Currently pursuing Bachelor of Computer
-                    Applications and learning programming,
-                    computer fundamentals and web technologies.
-                </p>
+    </div>
 
-            </div>
+</section>
 
 
-            <div class="education-card">
+<!-- ================= 03 SKILLS ================= -->
 
-                <div class="education-icon">💻</div>
+<section id="skills">
 
-                <h3>HDCA — Completed</h3>
-
-                <h4>CSC computer software college Dharmapuri</h4>
-
-                <p>
-                    Completed HDCA and gained knowledge in
-                    computer applications and software skills.
-                </p>
-
-                <a
-                    href="#certificates"
-                    class="education-button"
-                >
-                    View Certificate
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SKILLS -->
-    <section id="skills" class="section reveal">
-
-        <p class="label">03 — SKILLS</p>
-
+    <div class="section-title">
+        <span>03 — SKILLS</span>
         <h2>Skills</h2>
+    </div>
 
-        <div class="skills-grid">
+    <div class="skills">
 
-            <div class="glass-card">
-                <h3>HTML</h3>
-                <p>Web page structure and development.</p>
-            </div>
+        <div class="skill">C</div>
+        <div class="skill">C++</div>
+        <div class="skill">Python</div>
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">SQL</div>
+        <div class="skill">GitHub</div>
 
-            <div class="glass-card">
-                <h3>CSS</h3>
-                <p>Creative UI and responsive design.</p>
-            </div>
+    </div>
 
-            <div class="glass-card">
-                <h3>JavaScript</h3>
-                <p>Interactive web development.</p>
-            </div>
-
-            <div class="glass-card">
-                <h3>C / C++</h3>
-                <p>Programming fundamentals.</p>
-            </div>
-
-            <div class="glass-card">
-                <h3>Python</h3>
-                <p>Programming and AI learning.</p>
-            </div>
-
-            <div class="glass-card">
-                <h3>AI</h3>
-                <p>Exploring Artificial Intelligence.</p>
-            </div>
-    
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- PROJECTS -->
-    <section id="projects" class="section reveal">
+<!-- ================= 04 PROJECTS ================= -->
 
-        <p class="label">04 — PROJECTS</p>
+<section id="projects">
 
+    <div class="section-title">
+        <span>04 — PROJECTS</span>
         <h2>My Projects</h2>
+    </div>
 
-        <div class="projects-grid">
+    <div class="projects">
 
-            <!-- Kuil Game -->
-            <div class="project-card">
+        <!-- ADD YOUR EXISTING PROJECT DETAILS HERE -->
 
-                <h3>🎮 Kuil2game</h3>
+        <div class="card project-card">
 
-                <p>
-                    A creative browser-based game project.
-                </p>
+            <h3>Personal Portfolio Website</h3>
 
-                <a
-                    href="kuil2game.html"
-                    class="certificate-button"
-                >
-                    Open Game
-                </a>
+            <p>
+                My personal portfolio website showcasing my education,
+                skills, projects and digital creative work.
+            </p>
 
-            </div>
-
-
-            <!-- Makeup -->
-            <div class="project-card">
-
-                <h3>💄 Mackup Game</h3>
-
-                <p>
-                    A fun interactive makeup-themed web project.
-                </p>
-
-                <a
-                    href="mackup.html"
-                    class="certificate-button"
-                >
-                    Open Game
-                </a>
-
-            </div>
-
-
-            <!-- Calculator -->
-            <div class="project-card">
-
-                <h3>🧮 Calculator</h3>
-
-                <p>
-                    A simple interactive calculator project.
-                </p>
-
-                <a
-                    href="calc.html"
-                    class="certificate-button"
-                >
-                    Open Calculator
-                </a>
-
-            </div>
-
-
-            <!-- AI Project -->
-            <!-- 3rd project -->
-<a href="ai-game.html" class="project-card">
-    <h3>🐱 AI bhakshi</h3>
-<p>💬 friendly conversation</p>
-</a>
-</a>
+            <a href="#home" class="project-link">
+                View Project →
+            </a>
 
         </div>
 
-    </section>
-            <!-- Current Work -->
-<section id="current-work" class="section">
+
+        <div class="card project-card">
+
+            <h3>Creative Web Projects</h3>
+
+            <p>
+                Interactive websites and digital experiences created
+                using HTML, CSS and JavaScript.
+            </p>
+
+            <a href="#current-work" class="project-link">
+                View Work →
+            </a>
+
+        </div>
+
+
+        <div class="card project-card">
+
+            <h3>Game Project</h3>
+
+            <p>
+                Interactive browser game project created as part of
+                my web development practice.
+            </p>
+
+            <!-- YOUR EXISTING GAME LINK -->
+            <a href="#" class="project-link">
+                Play Game →
+            </a>
+
+        </div>
+
+
+        <div class="card project-card">
+
+            <h3>More Projects</h3>
+
+            <p>
+                More of my coding and web development projects will
+                be added here.
+            </p>
+
+            <a href="https://github.com/bavyasri-code07"
+               target="_blank"
+               class="project-link">
+                View GitHub →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= 05 CURRENT WORK ================= -->
+
+<section id="current-work">
 
     <div class="section-title">
         <span>05 — CURRENT WORK</span>
         <h2>Little Wish Digital</h2>
     </div>
 
-    <div class="work-card">
-        <div class="work-content">
+    <div class="card work-card">
 
-            <h3>Little Wish Digital</h3>
+        <h3>Little Wish Digital</h3>
 
-            <p class="work-role">
-                Founder & Digital Creator · 2026 – Present
-            </p>
+        <p class="work-role">
+            Founder & Digital Creator · 2026 – Present
+        </p>
 
-            <p>
-                I am currently running my own digital creative business
-                alongside my BCA studies, creating personalized websites,
-                digital invitations, memory websites and creative digital
-                content for clients.
-            </p>
+        <p>
+            I am currently running my own digital creative business
+            alongside my BCA studies.
+        </p>
 
-            <a
-                href="https://www.instagram.com/little.Wish.digital/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="work-button"
-            >
-                Visit Little Wish Digital →
-            </a>
+        <p>
+            I create personalized websites, digital invitations,
+            memory websites and creative digital content for clients.
+        </p>
 
-        </div>
+        <p>
+            I manage client requirements and create customized
+            digital experiences from concept to delivery.
+        </p>
+
+        <a href="https://www.instagram.com/little.Wish.digital/"
+           target="_blank"
+           class="work-button">
+            Visit Little Wish Digital →
+        </a>
+
     </div>
 
 </section>
 
 
-    <!-- CERTIFICATES -->
-    <section id="certificates" class="section reveal">
+<!-- ================= 06 CERTIFICATES ================= -->
 
-        <p class="label">06 — CERTIFICATES</p>
+<section id="certificates">
 
-        <h2>My Certificates</h2>
+    <div class="section-title">
+        <span>06 — CERTIFICATES</span>
+        <h2>Certificates & Achievements</h2>
+    </div>
 
-        <div class="projects-grid">
+    <div class="certificates">
 
-            <!-- Certificate 1 -->
-            <div class="certificate-card">
+        <div class="card certificate">
 
-                <h3>Certificate 01</h3>
+            <h3>Certificate 01</h3>
 
-                <p>
-                    Computer Software Course Certificate
-                </p>
-
-                <a
-                    href="csc1.jpg"
-                    target="_blank"
-                    class="certificate-button"
-                >
-                    View Certificate
-                </a>
-
-            </div>
-
-
-            <!-- Certificate 2 -->
-            <div class="certificate-card">
-
-                <h3>Certificate 02</h3>
-
-                <p>
-                    Computer Software Course Certificate
-                </p>
-
-                <a
-                    href="csc2.jpg"
-                    target="_blank"
-                    class="certificate-button"
-                >
-                    View Certificate
-                </a>
-
-            </div>
+            <p>
+                Add your certificate details here.
+            </p>
 
         </div>
 
-    </section>
+
+        <div class="card certificate">
+
+            <h3>Certificate 02</h3>
+
+            <p>
+                Add your certificate details here.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal">
+<!-- ================= 07 CONTACT ================= -->
 
-        <p class="label">07 — CONTACT</p>
+<section id="contact">
 
+    <div class="section-title">
+        <span>07 — CONTACT</span>
         <h2>Contact Me</h2>
+    </div>
 
-        <div class="contact-grid">
-
-            <a
-                href="tel:919360784058"
-                class="contact-box"
-            >
-                <h3>📞 Phone</h3>
-                <p>919360784058</p>
-            </a>
-
-
-            <a
-                href="mailto:bavyas2009@gmail.com"
-                class="contact-box"
-            >
-                <h3>📧 Email</h3>
-                <p>bavyas2009@gmail.com</p>
-            </a>
-
-
-            <a
-                href="https://github.com/bavyasri-code07"
-                target="_blank"
-                class="contact-box"
-            >
-                <h3>💻 GitHub</h3>
-                <p>bavyasri-code07</p>
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <p>© 2026 Bavya Sri</p>
+    <div class="card contact-card">
 
         <p>
-            Keep Learning • Keep Creating • Keep Growing ✨
+            Feel free to connect with me for projects,
+            creative work or collaborations.
         </p>
 
-    </footer>
+        <!-- CONTACT NUMBER WILL BE ADDED HERE -->
+
+        <div class="contact-number">
+            YOUR CONTACT NUMBER
+        </div>
 
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-    
+        <div class="social-links">
+
+            <a href="https://github.com/bavyasri-code07"
+               target="_blank">
+                GitHub
+            </a>
+
+            <a href="https://www.instagram.com/little.Wish.digital/"
+               target="_blank">
+                Little Wish Digital
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Bavya Sri • Portfolio
+
+</footer>
 
 </body>
 </html>
